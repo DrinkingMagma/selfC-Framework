@@ -1,0 +1,12 @@
+<host>192.168.59.132:21</host>
+<mode>1</mode>
+<username>centos</username>
+<password>lzyou1011</password>
+<remotepath>/tmp/ftp/server</remotepath>
+<localpath>/tmp/ftp/client</localpath>
+<matchrules>*.txt</matchrules>
+<ptype>1</ptype>
+<okfilename>/tmp/ftp/ftpgetfiles_geted_files.xml</okfilename>
+<checkmtime>true</checkmtime>
+<timeout>30</timeout>
+<pname>ftpgetfiles</pname>

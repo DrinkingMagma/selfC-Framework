@@ -1,0 +1,12 @@
+<host>192.168.59.132:21</host>
+<mode>1</mode>
+<username>centos</username>
+<password>lzyou1011</password>
+<localpath>/tmp/ftp/client/</localpath>
+<remotepath>/tmp/ftp/server/</remotepath>
+<matchrules>*.txt</matchrules>
+<ptype>1</ptype>
+<localpathbak>/tmp/ftp/client/surfdata_bak</localpathbak>
+<okfilename>/tmp/ftp/ftpputfiles_puted_files.xml</okfilename>
+<timeout>30</timeout>
+<pname>ftpputfiles_surfdata</pname>
