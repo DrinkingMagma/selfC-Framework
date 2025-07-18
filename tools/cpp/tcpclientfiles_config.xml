@@ -1,0 +1,11 @@
+<client_type>2</client_type>
+<ip>192.168.59.132</ip>
+<port>5005</port>
+<client_path>/tmp/client</client_path>
+<file_process_type>1</file_process_type>
+<server_path>/tmp/server</server_path>
+<and_child>true</and_child>
+<match_rules>*</match_rules>
+<time_tvl>10</time_tvl>
+<time_out>50</time_out>
+<process_name>tcpgetfiles</process_name>
