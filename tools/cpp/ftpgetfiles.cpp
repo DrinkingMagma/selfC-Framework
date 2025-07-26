@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    pactive.upt_a_time();
+    pactive.upt_atime();
 
     if(load_list_files() == false)
     {
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
         lst_remote_files.swap(lst_download_files);
     }
 
-    pactive.upt_a_time();
+    pactive.upt_atime();
 
     string str_remote_filename;
     string str_local_filename;
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
         }
         logfile.write("finished.\n");
 
-        pactive.upt_a_time();
+        pactive.upt_atime();
 
         // 将下载成功的文件添追加到已下载文件列表中
         if(starg.remote_file_processing_type == 1)

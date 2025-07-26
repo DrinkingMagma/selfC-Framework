@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
             {
                 fprintf(stderr, "Gzip [%s] failed: %s\n", dir.m_ffilename.c_str(), strerror(errno));
             }
-            pactive.upt_a_time();
+            pactive.upt_atime();
         }
     }
 

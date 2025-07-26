@@ -1,11 +1,21 @@
+<!-- 1-下载文件 2-上传文件 -->
 <client_type>2</client_type>
+<!-- 服务器ip地址及端口 -->
 <ip>192.168.59.132</ip>
 <port>5005</port>
-<client_path>/tmp/client</client_path>
-<file_process_type>1</file_process_type>
-<server_path>/tmp/server</server_path>
-<and_child>true</and_child>
+<!-- 原文件处理方式：1-不做处理 2-删除原文件 3-移动到备份目录 -->
+<file_process_type>3</file_process_type>
+<client_path>/tmp/tcp/client</client_path>
+<client_path_bak>/tmp/tcp/client/bak</client_path_bak>
+<server_path>/tmp/tcp/server</server_path>
+<server_path_bak>/tmp/tcp/server/bak</server_path_bak>
+<!-- 是否遍历子目录 -->
+<and_child>false</and_child>
+<!-- 文件的匹配规则 -->
 <match_rules>*</match_rules>
+<!-- 运行的时间间隔 单位：秒 -->
 <time_tvl>10</time_tvl>
+<!-- 超时时间 单位：秒 -->
 <time_out>50</time_out>
-<process_name>tcpgetfiles</process_name>
+<!-- 该进程在心跳守护进程中的名称 -->
+<process_name>tcpcilentfiles</process_name>

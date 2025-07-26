@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
                 if(activeTest() == false)
                     break;
             }
-            pactive.upt_a_time();
+            pactive.upt_atime();
         }
     }
 
@@ -120,11 +120,12 @@ void EXIT(int sig)
 void _help()
 {
     printf("\n");
-    printf("Usage: /root/C++/selfC++Framework/tools/bin/tcpgetfiles log_file_name xml_file_name\n");
-    printf("Examplr: /root/C++/selfC++Framework/tools/bin/procctl 20 /root/C++/selfC++Framework/tools/bin/tcpgetfiles/root/C++/selfC++Framework/tcpgetfiles.log /root/C++/selfC++Framework/tools/cpp/tcpgetfiles_config.xml\n");
+    printf("Usage: /root/C++/selfC++Framework/tools/bin/tcpclientfiles log_file_name xml_file_name\n");
+    printf("Examplr: /root/C++/selfC++Framework/tools/bin/procctl 20 /root/C++/selfC++Framework/tools/bin/tcpclientfiles /root/C++/selfC++Framework/log/tcpclientfiles.log /root/C++/selfC++Framework/tools/cpp/tcpclientfiles_config.xml\n");
     printf("本程序采用tcp协议从服务端下载/上传文件。\n");
     printf("log_file_name   本程序运行的日志文件。\n");
     printf("xml_buffer     本程序运行的参数，如下：\n");
+    printf("client_type         客户端类型：1-下载文件；2-上传文件。\n");
     printf("ip                  服务端的IP地址。\n");
     printf("port                服务端的端口。\n");
     printf("file_process_type   文件下载成功后原文件的处理方式：1-不做处理；2-删除文件；3-移动到备份目录。\n");
@@ -252,18 +253,29 @@ bool _xmlToArg(char *xml_buffer)
 */
 bool login(const char *argv)
 {
-    // s_format(g_str_send_buffer, "%s<client_type>2</client_type>", argv);
+    g_str_send_buffer = argv;
 
     // 向服务端发送请求报文
     if(tcp_client.write(g_str_send_buffer) == false)
+    {
+        logfile.write("tcp_client.write(): send login message failed.\n");
         return false;
+    }
 
     // 接受服务端的回应报文
     if(tcp_client.read(g_str_recv_buffer, 10) == false)
+    {
+        logfile.write("tcp_client.read(): receive login message failed.\n");
         return false;
+    }
     
-    logfile.write("Login tcp server(%s:%s) success.", arg.ip, arg.port);
-
+    if(g_str_recv_buffer == "success")
+        logfile.write("Login tcp server(%s:%d) success.\n", arg.ip, arg.port);
+    else
+    {
+        logfile.write("Login tcp server(%s:%d) failed: %s.\n", arg.ip, arg.port, g_str_recv_buffer);
+        return false;
+    }
     return true;
 }
 
@@ -274,7 +286,7 @@ void _tcpGetFiles()
 {
     while(true)
     {
-        pactive.upt_a_time();
+        pactive.upt_atime();
 
         // 接受服务器报文
         if(tcp_client.read(g_str_recv_buffer, arg.time_tvl + 10) == false)
@@ -311,7 +323,7 @@ void _tcpGetFiles()
             replace_str(client_file_name, arg.server_path, arg.client_path, false);
 
             // 接受文件内容
-            logfile.write("recv %s(mtime:%s, size:%d) ...... ", server_file_name.c_str(), server_file_mtime.c_str(), server_file_size);
+            logfile.write("recv file(%s) from (%s) ...... ", client_file_name.c_str(), server_file_name.c_str());
             if(recvFile(client_file_name, server_file_mtime, server_file_size) == true)
             {
                 logfile << "success.\n";
@@ -409,14 +421,14 @@ bool _tcpPutFiles(bool &bcontinue)
         bcontinue = true;
 
         s_format(g_str_send_buffer, "<file_name>%s</file_name><file_mtime>%s</file_mtime><file_size>%d</file_size>",
-                                    dir.m_filename.c_str(), dir.m_mtime.c_str(), dir.m_filesize);
+                                    dir.m_ffilename.c_str(), dir.m_mtime.c_str(), dir.m_filesize);
         if(tcp_client.write(g_str_send_buffer) == false)
         {
-            logfile.write("send file info(%s) to server failed.\n", g_str_send_buffer);
+            logfile.write("send file(%s) to server failed.\n", dir.m_ffilename.c_str());
             return false;
         }
 
-        logfile.write("send file info(%s) ......\n", g_str_send_buffer);
+        logfile.write("send file(%s) ...... ", dir.m_ffilename.c_str());
         if(sendFile(dir.m_ffilename, dir.m_filesize) == true)
         {
             logfile << "success.\n";
@@ -429,7 +441,7 @@ bool _tcpPutFiles(bool &bcontinue)
             return false;
         }
 
-        pactive.upt_a_time();
+        pactive.upt_atime();
 
         while(delayed > 0)
         {
@@ -450,6 +462,8 @@ bool _tcpPutFiles(bool &bcontinue)
         ackMessage(g_str_recv_buffer);
     }
 
+        
+    bcontinue = dir.read_dir();
     return true;
 }
 
@@ -506,11 +520,11 @@ bool ackMessage(const string &str_recv_buffer)
     string upload_result;
 
     get_xml_buffer(g_str_recv_buffer, "file_name", file_name);
-    get_xml_buffer(g_str_recv_buffer, "upload_result", upload_result);
+    get_xml_buffer(g_str_recv_buffer, "result", upload_result);
 
     if(upload_result != "success")
     {
-        logfile.write("server recv file(%s) failed.\n");
+        logfile.write("server recv file failed, upload result(%s).\n", upload_result.c_str());
         return false;
     }
 

@@ -1,0 +1,249 @@
+2025-07-23 11:36:17 Login tcp server(192.168.59.132:5005) success.2025-07-23 11:36:17 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:36:27 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:36:37 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:36:47 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:36:57 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:07 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:17 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:27 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:37 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:47 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:37:57 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:07 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:17 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:27 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:37 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:47 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:38:52 Process exit, sig: 2
+2025-07-23 11:45:55 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 11:45:55 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:05 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:15 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:25 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:35 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:45 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:46:55 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:47:05 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:47:15 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:47:25 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:47:35 Process exit, sig: 2
+2025-07-23 11:47:51 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 11:47:51 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:48:01 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:48:11 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:48:21 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:48:31 send file info(<file_name>uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:48:39 Process exit, sig: 2
+2025-07-23 11:51:29 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 11:51:29 send file info(<file_name>/tmp/tcp/client/uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:51:39 send file info(<file_name>/tmp/tcp/client/uploadTest.txt</file_name><file_mtime>20250722110423</file_mtime><file_size>13</file_size>) ...... success.
+2025-07-23 11:51:45 Process exit, sig: 2
+2025-07-23 11:53:23 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 11:56:56 tcp_client.read(): recv server message failed.
+2025-07-23 11:57:01 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 11:57:01 recv uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 11:57:11 recv uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 11:57:21 recv uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 11:57:31 recv uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 11:57:41 recv uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 11:57:46 Process exit, sig: 2
+2025-07-23 12:00:23 Login tcp server(192.168.59.132:5005) success.
+2025-07-23 12:00:23 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 12:00:33 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 12:00:43 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-23 12:00:46 tcp_client.read(): recv server message failed.
+2025-07-25 15:40:34 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 15:40:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:40:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:40:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:41:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:42:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:43:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:44:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:45:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:46:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:47:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:48:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:49:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:50:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:51:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:52:54 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:04 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:14 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:24 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:34 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:44 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:53:45 Process exit, sig: 2
+2025-07-25 15:58:05 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 15:58:05 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:58:15 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:58:25 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:58:35 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:58:45 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:58:55 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:59:05 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:59:07 Process exit, sig: 2
+2025-07-25 15:59:20 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 15:59:20 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:59:30 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:59:40 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 15:59:50 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 16:00:00 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 16:00:07 Process exit, sig: 2
+2025-07-25 19:02:41 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:02:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:02:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:03:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:04:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:05:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:06:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:07:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:08:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:09:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:10:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:11 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:21 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:31 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:41 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:51 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:11:51 recv /tmp/tcp/server/uploadTest2.doc(mtime:20250725191148, size:24) ...... success.
+2025-07-25 19:12:01 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:12:01 recv /tmp/tcp/server/uploadTest2.doc(mtime:20250725191148, size:24) ...... success.
+2025-07-25 19:12:09 tcp_client.read(): recv server message failed.
+2025-07-25 19:12:38 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:12:38 recv /tmp/tcp/server/uploadTest.txt(mtime:20250722110423, size:13) ...... success.
+2025-07-25 19:12:38 recv /tmp/tcp/server/uploadTest2.doc(mtime:20250725191148, size:24) ...... success.
+2025-07-25 19:12:48 tcp_client.write(): processing pactive message failed.
+2025-07-25 19:35:08 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:35:08 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:35:08 recv file(/tmp/tcp/server/uploadTest2.doc) from (/tmp/tcp/client/uploadTest2.doc) ...... success.
+2025-07-25 19:35:18 tcp_client.write(): processing pactive message failed.
+2025-07-25 19:44:18 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:44:18 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:44:18 recv file(/tmp/tcp/server/bak/uploadTest2.doc) from (/tmp/tcp/client/bak/uploadTest2.doc) ...... success.
+2025-07-25 19:44:28 tcp_client.write(): processing pactive message failed.
+2025-07-25 19:44:37 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:44:37 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:44:47 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:44:57 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:45:13 tcp_client.read(): recv server message failed.
+2025-07-25 19:48:09 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:50:09 recv file(/tmp/tcp/server/uploadTest2.doc) from (/tmp/tcp/client/uploadTest2.doc) ...... success.
+2025-07-25 19:50:09 recv file(/tmp/tcp/server/uploadTest.txt) from (/tmp/tcp/client/uploadTest.txt) ...... success.
+2025-07-25 19:50:19 tcp_client.write(): processing pactive message failed.
+2025-07-25 19:51:30 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:51:30 recv file(/tmp/tcp/server/uploadTest2.doc) from (/tmp/tcp/client/uploadTest2.doc) ...... success.
+2025-07-25 19:51:40 recv file(/tmp/tcp/server/uploadTest2.doc) from (/tmp/tcp/client/uploadTest2.doc) ...... success.
+2025-07-25 19:51:50 recv file(/tmp/tcp/server/uploadTest2.doc) from (/tmp/tcp/client/uploadTest2.doc) ...... success.
+2025-07-25 19:53:47 tcp_client.read(): recv server message failed.
+2025-07-25 19:54:45 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 19:54:45 recv file(/tmp/tcp/client/uploadTest2.doc) from (/tmp/tcp/server/uploadTest2.doc) ...... success.
+2025-07-25 19:54:45 recv file(/tmp/tcp/client/uploadTest.txt) from (/tmp/tcp/server/uploadTest.txt) ...... success.
+2025-07-25 19:54:55 tcp_client.write(): processing pactive message failed.
+2025-07-25 20:03:45 Login tcp server(192.168.59.132:5005) success.
+2025-07-25 20:03:45 recv file(/tmp/tcp/client/uploadTest2.doc) from (/tmp/tcp/server/uploadTest2.doc) ...... success.
+2025-07-25 20:03:45 recv file(/tmp/tcp/client/uploadTest.txt) from (/tmp/tcp/server/uploadTest.txt) ...... success.
+2025-07-25 20:03:55 recv file(/tmp/tcp/client/uploadTest.txt) from (/tmp/tcp/server/uploadTest.txt) ...... success.
+2025-07-25 20:04:05 recv file(/tmp/tcp/client/uploadTest.txt) from (/tmp/tcp/server/uploadTest.txt) ...... success.
+2025-07-25 20:04:22 Process exit, sig: 2

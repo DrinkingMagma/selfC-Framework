@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    pactive.upt_a_time();
+    pactive.upt_atime();
 
     if(starg.remote_file_processing_type == 1)
     {
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
     else
         lst_local_files.swap(lst_upload_files);
 
-    pactive.upt_a_time();
+    pactive.upt_atime();
 
     string strremote_filename;
     string strlocal_filename;
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
         }
         logfile.write("finished.\n");
 
-        pactive.upt_a_time();
+        pactive.upt_atime();
 
         if(starg.remote_file_processing_type == 1)
             append_upload_files(aa);

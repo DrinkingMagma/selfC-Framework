@@ -1158,6 +1158,7 @@ namespace idc
 
     bool cdir::read_dir()
     {
+        printf("----------m_pos = %d, m_filelist.size() = %d----------\n", m_pos, m_filelist.size());
         if(m_pos >= m_filelist.size())
         {
             m_pos = 0;
@@ -1518,14 +1519,14 @@ namespace idc
         // 将套接字绑定到地址结构
         if(bind(m_listen_fd, (struct sockaddr *)&m_server_addr, sizeof(m_server_addr)) != 0)
         {
-            close_liten();
+            close_listen();
             return false;
         }
 
         // 监听套接字
         if(listen(m_listen_fd, back_log) != 0)
         {
-            close_liten();
+            close_listen();
             return false;
         }
 
@@ -1581,7 +1582,7 @@ namespace idc
         return tcp_write(m_client_fd, buffer, i_buffer_len);
     }
 
-    void ctcpserver::close_liten()
+    void ctcpserver::close_listen()
     {
         if(m_listen_fd >= 0)
         {
@@ -1602,7 +1603,7 @@ namespace idc
     ctcpserver::~ctcpserver()
     {
         close_client();
-        close_liten();
+        close_listen();
     }
 
     bool tcp_read(const int socket_fd, void *buffer, const int i_buffer_size,const int i_out_time)
@@ -1615,16 +1616,17 @@ namespace idc
             struct pollfd fds;
             fds.fd = socket_fd;                 // 要监听的套接字
             fds.events = POLLIN;                // 表示关注可读事件（如接收数据，连接关闭）
-            if(poll(&fds, 1, i_out_time) <= 0)  // 等待事件或超时
+            if(poll(&fds, 1, i_out_time * 1000) <= 0)  // 等待事件或超时
                 return false;
         }
 
+        // 不等待
         if(i_out_time == -1)
         {
             struct pollfd fds;
             fds.fd = socket_fd;
             fds.events = POLLIN;
-            if(poll(&fds, 1, 0) <= 0);
+            if(poll(&fds, 1, 0) <= 0)
                 return false;
         }
 
@@ -1644,7 +1646,7 @@ namespace idc
             struct pollfd fds;
             fds.fd = socket_fd;
             fds.events = POLLIN;
-            if(poll(&fds, 1, i_out_time) <= 0);
+            if(poll(&fds, 1, i_out_time * 1000) <= 0)
                 return false;
         }
 
@@ -1961,7 +1963,7 @@ namespace idc
         return true;
     }
 
-    bool cpactive::upt_a_time()
+    bool cpactive::upt_atime()
     {
         if(m_pos == -1) 
             return false;

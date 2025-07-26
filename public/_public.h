@@ -751,8 +751,8 @@ namespace idc
              * @param i_buffer_len 缓冲区大小
              * @param i_out_time 超时时间
             */
-            bool read(string &buffer, const int i_out_time);
-            bool read(void *buffer, const int i_buffer_len, const int i_out_time);
+            bool read(string &buffer, const int i_out_time = 0);
+            bool read(void *buffer, const int i_buffer_len, const int i_out_time = 0);
 
             /**
              * @brief 发送数据给客户端
@@ -766,7 +766,7 @@ namespace idc
              * @brief 关闭监听的socket
              * @note 常用于多进程服务程序的子进程代码中
             */
-            void close_liten();
+            void close_listen();
 
             /**
              * @brief 关闭客户端的socket
@@ -782,7 +782,7 @@ namespace idc
      * @param socket_fd 可用的socket连接
      * @param buffer 接收数据的缓冲区
      * @param i_buffer_size 缓冲区大小
-     * @param timeout_ms 超时时间，单位毫秒
+     * @param timeout_ms 超时时间，单位秒
     */
     bool tcp_read(const int socket_fd, string &buffer, const int i_out_time = 0);
     bool tcp_read(const int socket_fd, void *buffer, const int i_buffer_size,const int i_out_time = 0);
@@ -1049,7 +1049,7 @@ namespace idc
             /**
              * @brief 更新共享内存进程组中当前进程的心跳时间
             */
-            bool upt_a_time();
+            bool upt_atime();
 
             /**
              * @brief 析构函数，从贡献内存中删除当前进程的心跳记录

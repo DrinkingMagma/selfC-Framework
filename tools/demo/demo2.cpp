@@ -33,7 +33,7 @@ int main(int argc,char *argv[])
     while (1)
     {
         sleep(atoi(argv[2]));
-        pactive.upt_a_time(); // 更新进程的心跳。
+        pactive.upt_atime(); // 更新进程的心跳。
     }
 
     return 0;
