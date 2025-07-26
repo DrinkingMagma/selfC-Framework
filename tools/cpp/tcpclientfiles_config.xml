@@ -1,10 +1,10 @@
 <!-- 1-下载文件 2-上传文件 -->
-<client_type>2</client_type>
+<client_type>1</client_type>
 <!-- 服务器ip地址及端口 -->
 <ip>192.168.59.132</ip>
 <port>5005</port>
 <!-- 原文件处理方式：1-不做处理 2-删除原文件 3-移动到备份目录 -->
-<file_process_type>3</file_process_type>
+<file_process_type>1</file_process_type>
 <client_path>/tmp/tcp/client</client_path>
 <client_path_bak>/tmp/tcp/client/bak</client_path_bak>
 <server_path>/tmp/tcp/server</server_path>

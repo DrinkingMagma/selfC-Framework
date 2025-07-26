@@ -184,7 +184,7 @@ void recvFilesMain()
         }
 
         // 处理心跳报文
-        if(g_str_recv_buffer == "<activate_test>ok</activate_test>")
+        if(g_str_recv_buffer == "<active_test>ok</active_test>")
         {
             g_str_send_buffer = "ok";
 
@@ -226,10 +226,9 @@ void recvFilesMain()
             // 返回文件下载结果
             if(tcp_server.write(g_str_send_buffer) == false)
             {
-                log_file << "tcp_server.write(): return the result of file download failed.\n";
+                log_file.write("tcp_server.write(): return the result of file download failed.\n");
                 return;
             }
-
         }
     }
 }
@@ -323,7 +322,7 @@ bool _tcpPutFiles(bool &bcontinue)
 
         while(delayed > 0)
         {
-            if(tcp_server.read(g_str_recv_buffer, -1) == false)
+            if(tcp_server.read(g_str_recv_buffer, 30) == false)
             {
                 log_file.write("When sended file(%s), receive back info from client failed.\n", dir.m_ffilename.c_str());
                 break;
@@ -336,7 +335,7 @@ bool _tcpPutFiles(bool &bcontinue)
 
     while(delayed > 0)
     {
-        if(tcp_server.read(g_str_recv_buffer, -1) == false)
+        if(tcp_server.read(g_str_recv_buffer, 30) == false)
         {
             
             log_file.write("receive back info from client failed.\n");

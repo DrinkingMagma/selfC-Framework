@@ -289,7 +289,7 @@ void _tcpGetFiles()
         pactive.upt_atime();
 
         // 接受服务器报文
-        if(tcp_client.read(g_str_recv_buffer, arg.time_tvl + 10) == false)
+        if(tcp_client.read(g_str_recv_buffer, arg.time_tvl + 20) == false)
         {
             logfile.write("tcp_client.read(): recv server message failed.\n");
             return;
@@ -445,8 +445,12 @@ bool _tcpPutFiles(bool &bcontinue)
 
         while(delayed > 0)
         {
-            if(tcp_client.read(g_str_recv_buffer, -1) == false)
+            if(tcp_client.read(g_str_recv_buffer, 30) == false)
+            {
+                
+                logfile.write("When sended file(%s), receive back info from client failed.\n", dir.m_ffilename.c_str());
                 break;
+            }
 
             delayed--;
             ackMessage(g_str_recv_buffer);
@@ -455,8 +459,12 @@ bool _tcpPutFiles(bool &bcontinue)
 
     while(delayed > 0)
     {
-        if(tcp_client.read(g_str_recv_buffer, -1) == false)
+        if(tcp_client.read(g_str_recv_buffer, 30) == false)
+        {
+            
+            logfile.write("receive back info from client failed.\n", dir.m_ffilename.c_str());
             break;
+        }
 
         delayed--;
         ackMessage(g_str_recv_buffer);

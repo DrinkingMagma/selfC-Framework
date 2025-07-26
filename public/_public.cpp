@@ -1158,7 +1158,7 @@ namespace idc
 
     bool cdir::read_dir()
     {
-        printf("----------m_pos = %d, m_filelist.size() = %d----------\n", m_pos, m_filelist.size());
+        // printf("----------m_pos = %d, m_filelist.size() = %d----------\n", m_pos, m_filelist.size());
         if(m_pos >= m_filelist.size())
         {
             m_pos = 0;
