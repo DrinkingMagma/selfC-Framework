@@ -7,17 +7,19 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <sys/socket.h>
+#include <sys/types.h>          
 #include <arpa/inet.h>
 #include <sys/fcntl.h>
+#include <sys/epoll.h>
 #include <signal.h>
 #include <errno.h>
 
+#define MAX_EVENTS 10
+
 // 初始化TCP服务器，创建监听套接字并绑定到指定端口
 int initServer(int port);
-
-// 更新最大文件描述符
-void updateMaxFd(fd_set *read_fds, int *max_fd);
 
 int main(int argc, char *argv[])
 {
@@ -28,7 +30,7 @@ int main(int argc, char *argv[])
     if (argc != 2)
     {
         printf("Usage: %s <port>\n", argv[0]);
-        printf("Example: ./tcpselect 5005\n");
+        printf("Example: ./tcp_epoll 5005\n");
         return -1;
     }
 
@@ -41,78 +43,79 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    // 创建文件描述符集合，用于select监听
-    fd_set read_fds;
-    FD_ZERO(&read_fds);             // 清空文件描述符集合
-    FD_SET(listen_sock, &read_fds); // 将监听套接字加入集合
-    int max_fd = listen_sock;       // 记录当前最大文件描述符
+    // 创建epoll句柄
+    int epoll_fd = epoll_create(1);
+
+    // 为listen_sock准备读事件
+    struct epoll_event ev;          // 声明事件的数据结构
+    ev.data.fd = listen_sock;       // 指定事件的自定义数据，会随着epoll_wait()返回的事件一并返回
+    ev.events = EPOLLIN;            // 指定监听的事件类型
+
+    // 将需要监视的socket及事件加入到epoll_fd中
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, listen_sock, &ev) < 0) {
+        perror("epoll_ctl failed to add listen socket");
+        close(listen_sock);
+        close(epoll_fd);
+        return -1;
+    }
+
+    // 存放epoll返回的事件
+    struct epoll_event evs[MAX_EVENTS];
 
     // 服务器主循环，持续监听客户端连接和数据
     while (true)
     {
-        // 设置select超时时间为10秒
-        struct timeval time_out;
-        time_out.tv_sec = 10;
-        time_out.tv_usec = 0;
-
-        // 复制文件描述符集合，因为select会修改它
-        fd_set tmp_fds = read_fds;
-
-        // 调用select监听所有加入集合的文件描述符
-        int in_fds = select(max_fd + 1, &tmp_fds, NULL, NULL, &time_out);
+        // 等待事件发生
+        // 设置超时时间为10秒
+        // int in_fds = epoll_wait(epoll_fd, evs, MAX_EVENTS, 10000);
+        // 设置无限等待
+        int in_fds = epoll_wait(epoll_fd, evs, MAX_EVENTS, -1);
 
         if (in_fds < 0)
         {
-            perror("select() failed.");
+            perror("epoll() failed.");
             return -1;
         }
         else if (in_fds == 0)
         {
-            printf("select() timeout.\n");
+            printf("epoll() timeout.\n");
             continue;
         }
+        // in_fds > 0表示有事件发生的socket的数量
         else
         {
             // 遍历所有文件描述符，检查哪些有事件发生
-            for (int cur_fd = 0; cur_fd <= max_fd; cur_fd++)
+            for (int i = 0; i < in_fds; i++)
             {
-                if (FD_ISSET(cur_fd, &tmp_fds) == 0)
-                {
-                    continue; // 当前文件描述符没有事件，跳过
-                }
-
-                // 处理新的客户端连接
-                if (cur_fd == listen_sock)
+                if(evs[i].data.fd == listen_sock)
                 {
                     struct sockaddr_in client_addr;
                     socklen_t client_len = sizeof(client_addr);
-
-                    // 接受客户端连接(非阻塞模式下可能返回EAGAIN)
                     int client_sock = accept(listen_sock, (struct sockaddr *)&client_addr, &client_len);
-                    if (client_sock < 0)
+                    if (client_sock < 0) 
                     {
-                        if (errno != EAGAIN && errno != EWOULDBLOCK)
-                            perror("accept() failed.");
-                        continue;
+                        if (errno != EAGAIN && errno != EWOULDBLOCK) {  // 忽略非阻塞下的正常无连接情况
+                            perror("accept() failed");
+                        }
+                        continue;  // 跳过无效连接
                     }
-                    printf("accept() a new client: %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+                    printf("accept a new client: %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
-                    // 设置客户端套接字为非阻塞模式
+                    // 将客户端套接字设置为非阻塞模式
                     int flags = fcntl(client_sock, F_GETFL, 0);
-                    if (fcntl(client_sock, F_SETFL, flags | O_NONBLOCK) < 0)
-                    {
+                    if (fcntl(client_sock, F_SETFL, flags | O_NONBLOCK) < 0) {
                         perror("fcntl() failed for client socket");
                         close(client_sock);
-                        continue; // 继续处理其他连接
+                        continue;
                     }
 
-                    // 将新客户端套接字加入监听集合
-                    FD_SET(client_sock, &read_fds);
-
-                    // 更新最大文件描述符
-                    if (max_fd < client_sock)
+                    ev.data.fd = client_sock;
+                    ev.events = EPOLLIN;
+                    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, client_sock, &ev) < 0) 
                     {
-                        max_fd = client_sock;
+                        perror("epoll_ctl failed to add client socket");
+                        close(client_sock);
+                        continue;
                     }
                 }
                 else
@@ -122,29 +125,26 @@ int main(int argc, char *argv[])
                     memset(buf, 0, sizeof(buf));
 
                     // 接收客户端数据
-                    if (recv(cur_fd, buf, sizeof(buf), 0) <= 0)
+                    if (recv(evs[i].data.fd, buf, sizeof(buf), 0) <= 0)
                     {
                         if (errno == EAGAIN || errno == EWOULDBLOCK)
                             continue;
                         // 客户端关闭连接或发生错误
-                        printf("client %d disconnected.\n", cur_fd);
+                        printf("client %d disconnected.\n", evs[i].data.fd);
 
                         // 关闭套接字并从监听集合中移除
-                        close(cur_fd);
-                        FD_CLR(cur_fd, &read_fds);
-
-                        updateMaxFd(&read_fds, &max_fd);
+                        close(evs[i].data.fd);
+                        epoll_ctl(epoll_fd, EPOLL_CTL_DEL, evs[i].data.fd, NULL);
                     }
                     else
                     {
                         // 成功接收到数据，打印并回显给客户端
-                        printf("recv from client %d: %s\n", cur_fd, buf);
-                        if (send(cur_fd, buf, strlen(buf), 0) <= 0)
+                        printf("recv from client %d: %s\n", evs[i].data.fd, buf);
+                        if (send(evs[i].data.fd, buf, strlen(buf), 0) <= 0)
                         {
                             perror("send() failed.");
-                            close(cur_fd);
-                            FD_CLR(cur_fd, &read_fds);
-                            updateMaxFd(&read_fds, &max_fd);
+                            close(evs[i].data.fd);
+                            epoll_ctl(epoll_fd, EPOLL_CTL_DEL, evs[i].data.fd, NULL);
                         }
                     }
                 }
@@ -190,6 +190,7 @@ int initServer(int port)
     if (bind(sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0)
     {
         perror("bind() failed.");
+        close(sock);
         return -1;
     }
 
@@ -197,6 +198,7 @@ int initServer(int port)
     if (listen(sock, 5) < 0)
     {
         perror("listen() failed.");
+        close(sock);
         return -1;
     }
 
@@ -210,17 +212,4 @@ int initServer(int port)
     }
 
     return sock;
-}
-
-void updateMaxFd(fd_set *read_fds, int *max_fd)
-{
-    for (int i = *max_fd; i >= 0; i--)
-    {
-        if (FD_ISSET(i, read_fds))
-        {
-            *max_fd = i;
-            return;
-        }
-    }
-    *max_fd = -1; // 此时没有活动的描述符
 }
