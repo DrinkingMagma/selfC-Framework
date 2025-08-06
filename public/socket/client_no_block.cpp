@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     if (argc != 3)
     {
         printf("Usage: %s <ip> <port>\n", argv[0]);
+        printf("Example: /root/C++/selfC++Framework/public/socket/client_no_block 192.168.59.132 5005\n", argv[0]);
         return -1;
     }
 
@@ -143,20 +144,19 @@ int main(int argc, char *argv[])
         }
 
         // 接收服务器回显
-        memset(buf, 0, sizeof(buf));
-        ssize_t n = recv(client_sock, buf, sizeof(buf) - 1, 0);
-        if (n < 0)
-        {
-            perror("recv error");
-            goto exit;
-        }
-        else if (n == 0)
-        {
-            printf("Server closed the connection.\n");
-            goto exit;
-        }
-
-        printf("Server echo: %s\n", buf);
+        // memset(buf, 0, sizeof(buf));
+        // ssize_t n = recv(client_sock, buf, sizeof(buf) - 1, 0);
+        // if (n < 0)
+        // {
+        //     perror("recv error");
+        //     goto exit;
+        // }
+        // else if (n == 0)
+        // {
+        //     printf("Server closed the connection.\n");
+        //     goto exit;
+        // }
+        // printf("Server echo: %s\n", buf);
     }
 
 exit:

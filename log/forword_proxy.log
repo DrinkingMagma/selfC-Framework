@@ -1,0 +1,56 @@
+2025-08-06 14:20:20 load route file success, number is 3.
+2025-08-06 14:20:34 current fd: 3, event: 1
+2025-08-06 14:20:34 accept socket by port(5058) and client (7 -> 8)
+2025-08-06 14:20:46 current fd: 7, event: 1
+2025-08-06 14:20:46 recv 4 bytes from 7
+2025-08-06 14:20:46 current fd: 7, event: 1
+2025-08-06 14:20:46 read error, close socket(7 - 8)
+2025-08-06 14:20:46 current fd: 8, event: 4
+2025-08-06 14:20:46 send -1 bytes to 8
+2025-08-06 14:37:19 current fd: 3, event: 1
+2025-08-06 14:37:19 accept socket by port(5058) and client (7 -> 8)
+2025-08-06 14:37:21 current fd: 7, event: 1
+2025-08-06 14:37:21 recv 5 bytes from 7
+2025-08-06 14:37:21 current fd: 8, event: 4
+2025-08-06 14:37:21 send 5 bytes to 8
+2025-08-06 14:37:21 current fd: 8, event: 1
+2025-08-06 14:37:21 recv 5 bytes from 8
+2025-08-06 14:37:21 current fd: 7, event: 4
+2025-08-06 14:37:21 send 5 bytes to 7
+2025-08-06 14:39:00 close the timeout socket (8 - 7)
+2025-08-06 14:39:48 current fd: 3, event: 1
+2025-08-06 14:39:48 accept socket by port(5058) and client (7 -> 8)
+2025-08-06 14:39:49 current fd: 7, event: 1
+2025-08-06 14:39:49 recv 2 bytes from 7
+2025-08-06 14:39:49 current fd: 8, event: 4
+2025-08-06 14:39:49 send 2 bytes to 8
+2025-08-06 14:39:49 current fd: 8, event: 1
+2025-08-06 14:39:49 recv 2 bytes from 8
+2025-08-06 14:39:49 current fd: 7, event: 4
+2025-08-06 14:39:49 send 2 bytes to 7
+2025-08-06 14:39:50 current fd: 7, event: 1
+2025-08-06 14:39:50 recv 3 bytes from 7
+2025-08-06 14:39:50 current fd: 8, event: 4
+2025-08-06 14:39:50 send 3 bytes to 8
+2025-08-06 14:39:50 current fd: 8, event: 1
+2025-08-06 14:39:50 recv 3 bytes from 8
+2025-08-06 14:39:50 current fd: 7, event: 4
+2025-08-06 14:39:50 send 3 bytes to 7
+2025-08-06 14:39:56 current fd: 7, event: 1
+2025-08-06 14:39:56 recv 7 bytes from 7
+2025-08-06 14:39:56 current fd: 8, event: 4
+2025-08-06 14:39:56 send 7 bytes to 8
+2025-08-06 14:39:56 current fd: 8, event: 1
+2025-08-06 14:39:56 recv 7 bytes from 8
+2025-08-06 14:39:56 current fd: 7, event: 4
+2025-08-06 14:39:56 send 7 bytes to 7
+2025-08-06 14:40:02 current fd: 7, event: 25
+2025-08-06 14:40:02 read error, close socket(7 - 8)
+2025-08-06 14:40:37 current fd: 6, event: 1
+2025-08-06 14:40:37 recv signal: SIGINT.
+2025-08-06 14:40:37 Process exit, sig = 2
+2025-08-06 14:41:36 ---------------------new-----------------------------
+2025-08-06 14:41:36 load route file success, number is 3.
+2025-08-06 14:41:43 current fd: 6, event: 1
+2025-08-06 14:41:43 recv signal: SIGINT.
+2025-08-06 14:41:43 Process exit, sig = 2
