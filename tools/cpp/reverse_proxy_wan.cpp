@@ -24,7 +24,7 @@ int epoll_fd = 0;       // epoll的句柄
 int timer_fd = 0;       // 定时器的句柄
 #define MAX_EVS 1000    // epoll监听的最大事件数
 
-#define MAX_SOCKETS 1024        // 最大连接数
+#define MAX_SOCKET_NUM 1024        // 最大连接数
 int client_sockets[MAX_SOCKET_NUM];    // 保存所有连接的socket
 int client_a_time[MAX_SOCKET_NUM];     // 保存所有连接的socket的最后活跃时间
 string client_buffer[MAX_SOCKET_NUM];  // 保存所有连接的发送内容的缓存
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     log_file.write("---------------------new-----------------------------\n");
-    log_file.write("load route file success, number is %d.\n", v_route.size());
+    log_file.write("load route file(%s) success, number is %d.\n", argv[2], v_route.size());
 
     // 初始化命令通道的监听端口
     cmd_listen_socket = initServer(atoi(argv[3]), true);
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
     int timer_fd = timerfd_create(CLOCK_MONOTONIC, TFD_NONBLOCK | TFD_CLOEXEC); // 创建定时器文件描述符
     struct itimerspec time_out;                     // 定时器结构体
     memset(&time_out, 0, sizeof(time_out));
-    time_out.it_value.tv_sec = 20;                  // 定时器间隔10秒
+    time_out.it_value.tv_sec = 20;                  // 设置定时器间隔(秒)
     time_out.it_value.tv_nsec = 0;
     timerfd_settime(timer_fd, 0, &time_out, NULL);  // 设置定时器，开始计时
     ev.data.fd = timer_fd;                          // 为定时器准备事件
@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
                 // 向命令通道发送心跳报文
                 char buffer[256];
                 strcpy(buffer, "<active_test>");
-                if(send(evs[i].data.fd, buffer, strlen(buffer), 0) <= 0)
+                if(send(cmd_connect_socket, buffer, strlen(buffer), 0) <= 0)
                 {
                     log_file.write("send active test failed\n");
                     EXIT(-1);
@@ -240,14 +240,14 @@ int main(int argc, char *argv[])
                     // 通过命令通道向内网发送命令，将路由参数传递过去
                     char buffer[256];
                     memset(buffer, 0, sizeof(buffer));
-                    sprintf(buffer, "<dst_ip>%d</dst_ip><dst_port>%d</dst_port>", v_route[j].dst_ip, v_route[j].dst_port);
+                    sprintf(buffer, "<dst_ip>%s</dst_ip><dst_port>%d</dst_port>", v_route[j].dst_ip, v_route[j].dst_port);
                     if(send(cmd_connect_socket, buffer, strlen(buffer), 0) <= 0)
                     {
                         log_file.write("send dst_ip(%s) and dst_port(%s) error.\n");
                         EXIT(-1);
                     }
 
-                    // 向目标地址及端口发起连接
+                    // 接收内网程序的发起的新连接
                     client_len = sizeof(client_addr);
                     int dst_socket = accept(cmd_listen_socket, (struct sockaddr *)&client_addr, &client_len);
                     if(dst_socket < 0)
@@ -315,6 +315,8 @@ int main(int argc, char *argv[])
                 // 若读取失败，则关闭socket
                 if(buffer_len <= 0)
                 {
+                    if (errno == EAGAIN || errno == EWOULDBLOCK)
+                            continue;
                     log_file.write("read error, close client socket(%d - %d)\n", evs[i].data.fd, client_sockets[evs[i].data.fd]);
                     close(evs[i].data.fd);
                     close(client_sockets[evs[i].data.fd]);
@@ -430,7 +432,7 @@ bool loadRoute(const char* init_file)
  * @brief 初始化服务端
  * @param port 服务器端口
 */
-int initServer(int port, bool is_block = false)
+int initServer(int port, bool is_block)
 {
     // 创建TCP套接字
     int sock = socket(AF_INET, SOCK_STREAM, 0);

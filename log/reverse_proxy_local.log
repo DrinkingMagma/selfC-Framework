@@ -1,0 +1,76 @@
+2025-08-08 11:35:19 ---------------------new-----------------------------
+2025-08-08 11:35:19 create wan link success(cmd_connnect_socket = 1)
+2025-08-08 11:35:22 current fd: 1, event: 1
+2025-08-08 11:35:22 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-08 11:35:22 current fd: 6, event: 25
+2025-08-08 11:35:22 read error, close client socket(6 - 5)
+2025-08-08 11:35:30 current fd: 4, event: 1
+2025-08-08 11:35:30 recv signal: SIGINT.
+2025-08-08 11:35:30 Process exit, sig = 2
+2025-08-11 14:16:25 ---------------------new-----------------------------
+2025-08-11 14:16:25 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 14:16:31 current fd: 1, event: 1
+2025-08-11 14:16:31 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 14:16:31 current fd: 6, event: 25
+2025-08-11 14:16:31 read error, close client socket(6 - 5)
+2025-08-11 14:16:45 current fd: 1, event: 1
+2025-08-11 14:17:03 current fd: 1, event: 1
+2025-08-11 14:17:03 recv info from wan error.
+2025-08-11 14:17:03 Process exit, sig = -1
+2025-08-11 14:20:01 ---------------------new-----------------------------
+2025-08-11 14:20:01 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 14:20:03 current fd: 1, event: 1
+2025-08-11 14:20:03 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 14:20:03 current fd: 6, event: 25
+2025-08-11 14:20:03 read error, close client socket(6 - 5)
+2025-08-11 14:20:14 current fd: 1, event: 1
+2025-08-11 14:20:14 recv info from wan error.
+2025-08-11 14:20:14 Process exit, sig = -1
+2025-08-11 14:25:25 ---------------------new-----------------------------
+2025-08-11 14:25:25 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 14:25:29 current fd: 1, event: 1
+2025-08-11 14:25:29 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 14:25:29 current fd: 6, event: 25
+2025-08-11 14:25:29 read error, close client socket(6 - 5)
+2025-08-11 14:25:34 current fd: 1, event: 1
+2025-08-11 14:25:34 recv info from wan error.
+2025-08-11 14:25:34 Process exit, sig = -1
+2025-08-11 14:35:43 ---------------------new-----------------------------
+2025-08-11 14:35:43 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 14:35:45 current fd: 1, event: 1
+2025-08-11 14:35:45 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 14:35:45 current fd: 6, event: 25
+2025-08-11 14:35:45 read error, close client socket(6 - 5)
+2025-08-11 14:35:52 current fd: 1, event: 1
+2025-08-11 14:35:52 recv info from wan error.
+2025-08-11 14:35:52 Process exit, sig = -1
+2025-08-11 21:16:36 ---------------------new-----------------------------
+2025-08-11 21:16:36 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 21:16:56 current fd: 1, event: 1
+2025-08-11 21:16:58 current fd: 1, event: 1
+2025-08-11 21:16:58 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 21:16:58 current fd: 6, event: 25
+2025-08-11 21:16:58 read error, close client socket(6 - 5)
+2025-08-11 21:17:00 current fd: 1, event: 1
+2025-08-11 21:17:00 recv info from wan error.
+2025-08-11 21:17:00 Process exit, sig = -1
+2025-08-11 21:22:43 ---------------------new-----------------------------
+2025-08-11 21:22:43 create wan link success(cmd_connnect_socket = 1)
+2025-08-11 21:22:50 current fd: 1, event: 1
+2025-08-11 21:22:50 connect to 192.168.59.132:5008 success(5 <--> 6)
+2025-08-11 21:22:59 current fd: 5, event: 1
+2025-08-11 21:22:59 recv 3 bytes from 5
+2025-08-11 21:22:59 current fd: 6, event: 4
+2025-08-11 21:22:59 send 3 bytes to 6
+2025-08-11 21:22:59 current fd: 6, event: 1
+2025-08-11 21:22:59 recv 3 bytes from 6
+2025-08-11 21:22:59 current fd: 5, event: 4
+2025-08-11 21:22:59 send 3 bytes to 5
+2025-08-11 21:23:03 current fd: 1, event: 1
+2025-08-11 21:23:23 current fd: 1, event: 1
+2025-08-11 21:23:42 current fd: 6, event: 1
+2025-08-11 21:23:42 read error, close client socket(6 - 5)
+2025-08-11 21:23:43 current fd: 1, event: 1
+2025-08-11 21:23:45 current fd: 1, event: 1
+2025-08-11 21:23:45 recv info from wan error.
+2025-08-11 21:23:45 Process exit, sig = -1

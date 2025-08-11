@@ -23,7 +23,7 @@ int initServer(int port);
 int epoll_fd = 0;       // epoll的句柄
 #define MAX_EVS 1000    // epoll监听的最大事件数
 
-#define MAX_SOCKETS 1024        // 最大连接数
+#define MAX_SOCKET_NUM 1024        // 最大连接数
 int client_sockets[MAX_SOCKET_NUM];    // 保存所有连接的socket
 int client_a_time[MAX_SOCKET_NUM];     // 保存所有连接的socket的最后活跃时间
 string client_buffer[MAX_SOCKET_NUM];  // 保存所有连接的发送内容的缓存

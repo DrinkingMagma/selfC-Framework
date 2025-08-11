@@ -1,0 +1,71 @@
+2025-08-08 11:35:17 ---------------------new-----------------------------
+2025-08-08 11:35:17 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-08 11:35:22 current fd: 5, event: 1
+2025-08-08 11:35:22 accept socket by port(5005) and client (9 -> 10)
+2025-08-08 11:35:22 current fd: 10, event: 1
+2025-08-08 11:35:22 read error, close client socket(10 - 9)
+2025-08-08 11:35:33 current fd: 8, event: 1
+2025-08-08 11:35:33 recv signal: SIGINT.
+2025-08-08 11:35:33 Process exit, sig = 2
+2025-08-11 14:16:22 ---------------------new-----------------------------
+2025-08-11 14:16:22 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 14:16:31 current fd: 5, event: 1
+2025-08-11 14:16:31 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 14:16:31 current fd: 10, event: 1
+2025-08-11 14:16:31 read error, close client socket(10 - 9)
+2025-08-11 14:17:03 current fd: 8, event: 1
+2025-08-11 14:17:03 recv signal: SIGINT.
+2025-08-11 14:17:03 Process exit, sig = 2
+2025-08-11 14:19:59 ---------------------new-----------------------------
+2025-08-11 14:19:59 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 14:20:03 current fd: 5, event: 1
+2025-08-11 14:20:03 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 14:20:03 current fd: 10, event: 1
+2025-08-11 14:20:03 read error, close client socket(10 - 9)
+2025-08-11 14:20:14 current fd: 8, event: 1
+2025-08-11 14:20:14 recv signal: SIGINT.
+2025-08-11 14:20:14 Process exit, sig = 2
+2025-08-11 14:25:22 ---------------------new-----------------------------
+2025-08-11 14:25:22 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 14:25:29 current fd: 5, event: 1
+2025-08-11 14:25:29 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 14:25:29 current fd: 10, event: 1
+2025-08-11 14:25:29 read error, close client socket(10 - 9)
+2025-08-11 14:25:34 current fd: 8, event: 1
+2025-08-11 14:25:34 recv signal: SIGINT.
+2025-08-11 14:25:34 Process exit, sig = 2
+2025-08-11 14:35:41 ---------------------new-----------------------------
+2025-08-11 14:35:41 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 14:35:45 current fd: 5, event: 1
+2025-08-11 14:35:45 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 14:35:45 current fd: 10, event: 1
+2025-08-11 14:35:45 read error, close client socket(10 - 9)
+2025-08-11 14:35:52 current fd: 8, event: 1
+2025-08-11 14:35:52 recv signal: SIGINT.
+2025-08-11 14:35:52 Process exit, sig = 2
+2025-08-11 21:16:33 ---------------------new-----------------------------
+2025-08-11 21:16:33 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 21:16:58 current fd: 5, event: 1
+2025-08-11 21:16:58 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 21:16:58 current fd: 10, event: 1
+2025-08-11 21:16:58 read error, close client socket(10 - 9)
+2025-08-11 21:17:00 current fd: 8, event: 1
+2025-08-11 21:17:00 recv signal: SIGINT.
+2025-08-11 21:17:00 Process exit, sig = 2
+2025-08-11 21:22:40 ---------------------new-----------------------------
+2025-08-11 21:22:40 load route file(./reverse_proxy_wan.conf) success, number is 3.
+2025-08-11 21:22:50 current fd: 5, event: 1
+2025-08-11 21:22:50 accept socket by port(5005) and client (9 -> 10)
+2025-08-11 21:22:59 current fd: 9, event: 1
+2025-08-11 21:22:59 recv 3 bytes from 9
+2025-08-11 21:22:59 current fd: 10, event: 4
+2025-08-11 21:22:59 send 3 bytes to 10
+2025-08-11 21:22:59 current fd: 10, event: 1
+2025-08-11 21:22:59 recv 3 bytes from 10
+2025-08-11 21:22:59 current fd: 9, event: 4
+2025-08-11 21:22:59 send 3 bytes to 9
+2025-08-11 21:23:42 current fd: 10, event: 1
+2025-08-11 21:23:42 read error, close client socket(10 - 9)
+2025-08-11 21:23:45 current fd: 8, event: 1
+2025-08-11 21:23:45 recv signal: SIGINT.
+2025-08-11 21:23:45 Process exit, sig = 2

@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
         log_file.write("connect %s:%s failed.\n", argv[2], argv[3]);
         return -1;
     }
+    client_a_time[cmd_connect_socket] = time(NULL);
     log_file.write("---------------------new-----------------------------\n");
     log_file.write("create wan link success(cmd_connnect_socket = %d)\n", cmd_connect_socket);
 
@@ -73,7 +74,7 @@ int main(int argc, char *argv[])
     int timer_fd = timerfd_create(CLOCK_MONOTONIC, TFD_NONBLOCK | TFD_CLOEXEC); // 创建定时器文件描述符
     struct itimerspec time_out;                     // 定时器结构体
     memset(&time_out, 0, sizeof(time_out));
-    time_out.it_value.tv_sec = 20;                  // 定时器间隔10秒
+    time_out.it_value.tv_sec = 20;                  // 设置定时器间隔(秒)
     time_out.it_value.tv_nsec = 0;
     timerfd_settime(timer_fd, 0, &time_out, NULL);  // 设置定时器，开始计时
     ev.data.fd = timer_fd;                          // 为定时器准备事件
@@ -165,16 +166,17 @@ int main(int argc, char *argv[])
                 // 通过命令通道向内网发送命令，将路由参数传递过去
                 char buffer[256];
                 memset(buffer, 0, sizeof(buffer));
-                if(recv(cmd_connect_socket, buffer, strlen(buffer), 0) <= 0)
+                if(recv(evs[i].data.fd, buffer, sizeof(buffer), 0) <= 0)
                 {
                     log_file.write("recv info from wan error.\n");
                     EXIT(-1);
                 }
 
+                // 忽略心跳包
                 if(strcmp(buffer, "<active_test>") == 0)
                     continue;
 
-                // 向外网服务端发起连接
+                // 向外网服务端发起新的连接
                 int src_socket = connectToDest(argv[2], atoi(argv[3]));
                 if(src_socket < 0)
                 {
@@ -203,6 +205,13 @@ int main(int argc, char *argv[])
                     continue;
                 }
                 if(dst_socket >= MAX_SOCKET_NUM)
+                {
+                    log_file.write("when connect wan program socket, too many sockets(%d > %d)\n", dst_socket, MAX_SOCKET_NUM);
+                    close(src_socket);
+                    close(dst_socket);
+                    continue;
+                }
+                log_file.write("connect to %s:%d success(%d <--> %d)\n", dst_ip, dst_port, src_socket, dst_socket);
 
                 // 为两个socket准备读事件并添加到epoll中
                 ev.data.fd = src_socket;
@@ -232,8 +241,7 @@ int main(int argc, char *argv[])
                 client_a_time[src_socket] = time(0);
                 client_a_time[dst_socket] = time(0);
 
-                // 一个事件只会对应一个监听的socket，因此找到后不需要继续寻找
-                break;
+                continue;
             }
 
             // 处理客户端连接的socket的事件
@@ -248,6 +256,8 @@ int main(int argc, char *argv[])
                 // 若读取失败，则关闭socket
                 if(buffer_len <= 0)
                 {
+                    if (errno == EAGAIN || errno == EWOULDBLOCK)
+                            continue;
                     log_file.write("read error, close client socket(%d - %d)\n", evs[i].data.fd, client_sockets[evs[i].data.fd]);
                     close(evs[i].data.fd);
                     close(client_sockets[evs[i].data.fd]);
@@ -317,7 +327,7 @@ void _help()
  * @param port 目标端口
  * @param is_block 是否阻塞
 */
-int connectToDest(const char *ip, const int port, bool is_block = false)
+int connectToDest(const char *ip, const int port, bool is_block)
 {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if(sock < 0)
