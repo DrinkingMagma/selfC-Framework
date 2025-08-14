@@ -64,13 +64,13 @@ int oci_context_close(OCI_CXT *cxt);
 int oci_stmt_create(OCI_CXT *cxt,OCI_HANDLE *handle);
 int oci_stmt_close(OCI_HANDLE *handle);
 
-class connection;
-class sqlstatement;
+class Connection;
+class SqlStatement;
 
 // Oracle数据库连接类。
-class connection
+class Connection
 {
-    friend class sqlstatement;
+    friend class SqlStatement;
 private:
     LOGINENV m_env;    // 服务器环境句柄。
     OCI_CXT m_cxt;       // 服务器上下文。
@@ -84,8 +84,8 @@ private:
 
     void err_report();   // 获取错误信息。
 
-    connection(const connection &) = delete;             // 禁用拷贝构造函数。
-    connection &operator=(const connection &) = delete;  // 禁用赋值函数。
+    Connection(const Connection &) = delete;             // 禁用拷贝构造函数。
+    Connection &operator=(const Connection &) = delete;  // 禁用赋值函数。
 
     // 数据库连接状态：connected-已连接；disconnected-未连接。
     enum { connected,disconnected };
@@ -93,8 +93,8 @@ private:
 
     CDA_DEF m_cda;       // 数据库操作的结果或最后一次执行SQL语句的结果。
 public:
-    connection();    // 构造函数。
-   ~connection();    // 析构函数。
+    Connection();    // 构造函数。
+   ~Connection();    // 析构函数。
 
     // 登录数据库。
     // connstr：数据库的登录参数，格式：username/password@tnsname，username-用户名，password-登录密
@@ -137,12 +137,12 @@ public:
 };
 
 // 操作SQL语句类。
-class sqlstatement
+class SqlStatement
 {
 private:
     OCI_HANDLE m_handle;    // SQL句柄。
 
-    connection *m_conn;         // 数据库连接指针。
+    Connection *m_conn;         // 数据库连接指针。
     bool m_sqltype;                 // SQL语句的类型，false-查询语句；true-非查询语句。
     bool m_autocommitopt;    // 自动提交标志，false-关闭；true-开启。
     void err_report();                // 错误报告。
@@ -153,8 +153,8 @@ private:
     int  lobtofile(FILE *fp);       // 从clob和blob字段中导出内容到文件中。
     void freelob();                   // 释放lob指针。
 
-    sqlstatement(const sqlstatement &) = delete;             // 禁用拷贝构造函数。
-    sqlstatement &operator=(const sqlstatement &) = delete;  // 禁用赋值函数。
+    SqlStatement(const SqlStatement &) = delete;             // 禁用拷贝构造函数。
+    SqlStatement &operator=(const SqlStatement &) = delete;  // 禁用赋值函数。
 
     // 与数据库连接的关联状态，connected-已关联；disconnect-未关联。
     enum { connected,disconnected }; 
@@ -164,17 +164,17 @@ private:
     CDA_DEF m_cda;       // 执行SQL语句的结果。
 
 public:
-    sqlstatement();      // 构造函数。
-    sqlstatement(connection *conn);    // 构造函数，同时指定数据库连接。
+    SqlStatement();      // 构造函数。
+    SqlStatement(Connection *conn);    // 构造函数，同时指定数据库连接。
 
-   ~sqlstatement();
+   ~SqlStatement();
 
     // 指定数据库连接。
     // conn：数据库连接connection对象的地址。
     // 返回值：0-成功，其它失败，只要conn参数是有效的，并且数据库的游标资源足够，connect方法不会返回失败。
     // 程序中一般不必关心connect方法的返回值。
     // 注意，每个sqlstatement只需要指定一次，在指定新的connection前，必须先显式的调用disconnect方法。
-    int connect(connection *conn); 
+    int connect(Connection *conn); 
 
     bool isopen();   // 判断是否指定数据库连接。
 

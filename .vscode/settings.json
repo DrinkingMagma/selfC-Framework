@@ -6,6 +6,7 @@
         "iosfwd": "cpp",
         "istream": "cpp",
         "cerrno": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "mutex": "cpp"
     }
 }

@@ -122,7 +122,7 @@ int oci_stmt_close(OCI_HANDLE *handle)
     return oci_ret;
 }
 
-connection::connection()
+Connection::Connection()
 { 
     m_state = disconnected; 
 
@@ -135,13 +135,13 @@ connection::connection()
     strncpy(m_cda.message,"database not open.",128);
 }
 
-connection::~connection()
+Connection::~Connection()
 {
     disconnect();
 }
 
 // 从connstr中解析username,password,tnsname
-void connection::setdbopt(const char *connstr)
+void Connection::setdbopt(const char *connstr)
 {
     char strtemp[201];
 
@@ -171,7 +171,7 @@ void connection::setdbopt(const char *connstr)
 
 
 // 设置字符集，如果客户端的字符集与数据库的不一致，就会出现乱码。
-void connection::character(const char *charset)
+void Connection::character(const char *charset)
 {
     if (charset==NULL) return;
 
@@ -187,7 +187,7 @@ void connection::character(const char *charset)
     */
 }
 
-int connection::connecttodb(const string &connstr,const string &charset,bool autocommitopt)
+int Connection::connecttodb(const string &connstr,const string &charset,bool autocommitopt)
 {
     // 如果已连接上数据库，就不再连接
     // 所以，如果想重连数据库，必须显示的调用disconnect()方法后才能重连
@@ -232,14 +232,14 @@ int connection::connecttodb(const string &connstr,const string &charset,bool aut
     return 0;
 }
 
-bool connection::isopen() 
+bool Connection::isopen() 
 { 
     if (m_state==disconnected) return false; 
 
     return true; 
 }
 
-int connection::disconnect()
+int Connection::disconnect()
 {
     memset(&m_cda,0,sizeof(m_cda));
 
@@ -259,7 +259,7 @@ int connection::disconnect()
     return 0;
 }
 
-int connection::execute(const char *fmt,...)
+int Connection::execute(const char *fmt,...)
 {
     va_list ap;
     va_start(ap,fmt);
@@ -272,12 +272,12 @@ int connection::execute(const char *fmt,...)
     vsnprintf(&strsql[0],len+1,fmt,ap);
     va_end(ap);
 
-    sqlstatement stmt(this);
+    SqlStatement stmt(this);
 
     return stmt.execute(strsql.c_str());
 }
 
-int connection::rollback()
+int Connection::rollback()
 { 
     memset(&m_cda,0,sizeof(m_cda));
 
@@ -296,7 +296,7 @@ int connection::rollback()
     return 0;    
 }
 
-int connection::commit()
+int Connection::commit()
 { 
     memset(&m_cda,0,sizeof(m_cda));
 
@@ -315,7 +315,7 @@ int connection::commit()
     return 0;
 }
 
-void connection::err_report()
+void Connection::err_report()
 {
     if (m_state == disconnected) 
     { 
@@ -337,7 +337,7 @@ void connection::err_report()
     }
 }
 
-sqlstatement::sqlstatement()
+SqlStatement::SqlStatement()
 {
     m_state=disconnected; 
 
@@ -346,12 +346,12 @@ sqlstatement::sqlstatement()
     memset(&m_cda,0,sizeof(m_cda));
 
     m_cda.rc=-1;
-    strncpy(m_cda.message,"sqlstatement not connect to connection.\n",128);
+    strncpy(m_cda.message,"SqlStatement not connect to connection.\n",128);
 
     m_lob=0;
 }
 
-sqlstatement::sqlstatement(connection *conn)
+SqlStatement::SqlStatement(Connection *conn)
 {
     m_state=disconnected;
 
@@ -360,19 +360,19 @@ sqlstatement::sqlstatement(connection *conn)
     memset(&m_cda,0,sizeof(m_cda));
 
     m_cda.rc=-1;
-    strncpy(m_cda.message,"sqlstatement not connect to connection.\n",128);
+    strncpy(m_cda.message,"SqlStatement not connect to connection.\n",128);
 
     m_lob=0;
 
     connect(conn);
 }
 
-sqlstatement::~sqlstatement()
+SqlStatement::~SqlStatement()
 {
     disconnect();
 }
 
-int sqlstatement::connect(connection *conn)
+int SqlStatement::connect(Connection *conn)
 {
     // 注意，一个sqlstatement在程序中只能指定一个connection，不允许指定多个connection。
     // 所以，只要这个sqlstatement已指定connection，直接返回成功。
@@ -410,7 +410,7 @@ int sqlstatement::connect(connection *conn)
     return 0;
 }
 
-int sqlstatement::disconnect()
+int SqlStatement::disconnect()
 {
     if (m_state == disconnected) return 0;
 
@@ -432,7 +432,7 @@ int sqlstatement::disconnect()
     return 0;
 }
 
-bool sqlstatement::isopen() 
+bool SqlStatement::isopen() 
 { 
     if (m_state==disconnected) return false; 
 
@@ -481,7 +481,7 @@ void OR__DeleteLChar(char *str,const char chr)
 
 // 在新的OCI方法中，当SQL语句有错误时，OCIStmtPrepare返回的是0，不是失败
 // 所以，程序中在程序中一般不必处理prepare的结果
-int sqlstatement::prepare(const char *fmt,...)
+int SqlStatement::prepare(const char *fmt,...)
 { 
     memset(&m_cda,0,sizeof(m_cda));
 
@@ -523,110 +523,110 @@ int sqlstatement::prepare(const char *fmt,...)
     return 0;
 }
 
-int sqlstatement::bindin(const unsigned int position,int &value)
+int SqlStatement::bindin(const unsigned int position,int &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value, sizeof(value),
                         SQLT_INT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin(const unsigned int position,long &value)
+int SqlStatement::bindin(const unsigned int position,long &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value, sizeof(value),
                         SQLT_INT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin(const unsigned int position,unsigned int &value)
+int SqlStatement::bindin(const unsigned int position,unsigned int &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp,m_handle.errhp,(ub4)position,&value,sizeof(value),
                         SQLT_INT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin(const unsigned int position,unsigned long &value)
+int SqlStatement::bindin(const unsigned int position,unsigned long &value)
 {
     return OCIBindByPos(m_handle.smthp,&m_handle.bindhp,m_handle.errhp,(ub4)position,&value,sizeof(value),
                         SQLT_INT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin(const unsigned int position,float &value)
+int SqlStatement::bindin(const unsigned int position,float &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value, sizeof(value),
                         SQLT_FLT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);
 }
 
-int sqlstatement::bindin(const unsigned int position,double &value)
+int SqlStatement::bindin(const unsigned int position,double &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value, sizeof(value),
                         SQLT_FLT, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);
 }
 
-int sqlstatement::bindin(const unsigned int position,char *value,unsigned int len)
+int SqlStatement::bindin(const unsigned int position,char *value,unsigned int len)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, value, len+1,
                         SQLT_STR, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin(const unsigned int position,string &value,unsigned int len)
+int SqlStatement::bindin(const unsigned int position,string &value,unsigned int len)
 {
     value.resize(len);
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value[0], len+1,
                         SQLT_STR, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindin1(const unsigned int position,string &value)
+int SqlStatement::bindin1(const unsigned int position,string &value)
 {
     return OCIBindByPos(m_handle.smthp, &m_handle.bindhp, m_handle.errhp, (ub4)position, &value[0], value.size()+1,
                         SQLT_STR, NULL, NULL,NULL,0, NULL, OCI_DEFAULT);  
 }
 
-int sqlstatement::bindout(const unsigned int position,int &value)
+int SqlStatement::bindout(const unsigned int position,int &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_INT, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,long &value)
+int SqlStatement::bindout(const unsigned int position,long &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_INT, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,unsigned int &value)
+int SqlStatement::bindout(const unsigned int position,unsigned int &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_INT, NULL, NULL, NULL, OCI_DEFAULT );
 }
-int sqlstatement::bindout(const unsigned int position,unsigned long &value)
+int SqlStatement::bindout(const unsigned int position,unsigned long &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_INT, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,float &value)
+int SqlStatement::bindout(const unsigned int position,float &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_FLT, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,double &value)
+int SqlStatement::bindout(const unsigned int position,double &value)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value, sizeof(value), 
                           SQLT_FLT, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,char *value,unsigned int len)
+int SqlStatement::bindout(const unsigned int position,char *value,unsigned int len)
 {
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, value, len+1, 
                           SQLT_STR, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindout(const unsigned int position,string &value,unsigned int len)
+int SqlStatement::bindout(const unsigned int position,string &value,unsigned int len)
 {
     value.resize(len);
     return OCIDefineByPos(m_handle.smthp, &m_handle.defhp, m_handle.errhp, position, &value[0], len+1, 
                           SQLT_STR, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindblob()
+int SqlStatement::bindblob()
 {
     alloclob();
 
@@ -634,7 +634,7 @@ int sqlstatement::bindblob()
                           SQLT_BLOB, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::bindclob()
+int SqlStatement::bindclob()
 {
     alloclob();
 
@@ -642,7 +642,7 @@ int sqlstatement::bindclob()
                           SQLT_CLOB, NULL, NULL, NULL, OCI_DEFAULT );
 }
 
-int sqlstatement::execute() 
+int SqlStatement::execute() 
 {
     memset(&m_cda,0,sizeof(m_cda));
 
@@ -674,7 +674,7 @@ int sqlstatement::execute()
     return 0;
 }
 
-int sqlstatement::execute(const char *fmt,...) 
+int SqlStatement::execute(const char *fmt,...) 
 {
     string strtmp;
 
@@ -694,7 +694,7 @@ int sqlstatement::execute(const char *fmt,...)
     return execute();
 }
 
-int sqlstatement::next() 
+int SqlStatement::next() 
 { 
     // 注意，在该函数中，不可用memset(&m_cda,0,sizeof(m_cda))，否则会清空m_cda.rpc的内容
     if (m_state == disconnected) 
@@ -734,7 +734,7 @@ int sqlstatement::next()
     return 0;
 }
 
-void sqlstatement::err_report()
+void SqlStatement::err_report()
 {
     // 注意，在该函数中，不可随意用memset(&m_cda,0,sizeof(m_cda))，否则会清空m_cda.rpc的内容
     if (m_state == disconnected) 
@@ -758,14 +758,14 @@ void sqlstatement::err_report()
     m_conn->err_report();
 }
 
-int sqlstatement::alloclob()
+int SqlStatement::alloclob()
 {
     if (m_lob!=0) return 0;
 
     return OCIDescriptorAlloc((dvoid *)m_handle.envhp,(dvoid **)&m_lob,(ub4)OCI_DTYPE_LOB,(size_t)0,(dvoid **)0);
 }
 
-void sqlstatement::freelob()
+void SqlStatement::freelob()
 {
     if (m_lob!=0) OCIDescriptorFree((dvoid *)m_lob, (ub4)OCI_DTYPE_LOB);
 
@@ -779,7 +779,7 @@ ub4 file_length(FILE *fp)
     return (ub4) (ftell(fp));
 }
 
-int  sqlstatement::filetolob(const string &filename)
+int  SqlStatement::filetolob(const string &filename)
 {
     FILE *fp=0;
 
@@ -798,7 +798,7 @@ int  sqlstatement::filetolob(const string &filename)
 /* 操作CLOB和BLOB内容时，缓冲区的大小，一般不需要修改。 */
 #define LOBMAXBUFLEN  10240
 
-int sqlstatement::filetolob(FILE *fp)
+int SqlStatement::filetolob(FILE *fp)
 {
     ub4   offset = 1;
     ub4   loblen = 0;
@@ -902,7 +902,7 @@ int sqlstatement::filetolob(FILE *fp)
 }
 
 // 把LOB字段中的内容写入文件
-int  sqlstatement::lobtofile(const string &filename)
+int  SqlStatement::lobtofile(const string &filename)
 {
     FILE *fp=0;
 
@@ -923,7 +923,7 @@ int  sqlstatement::lobtofile(const string &filename)
     return iret;
 }
 
-int sqlstatement::lobtofile(FILE *fp)
+int SqlStatement::lobtofile(FILE *fp)
 {
     ub4   offset = 1;
     ub4   loblen = 0;
