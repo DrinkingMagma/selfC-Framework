@@ -27,7 +27,7 @@ int main(int argc,char *argv[])
     Connection conn;
 
     // 登录数据库
-    if(conn.connecttodb("lzy/lzyou1011@ORCL", "Simplified Chinese_China.AL32UTF8") != 0)
+    if(conn.connecttodb("idc/idcpwd@ORCL", "Simplified Chinese_China.AL32UTF8") != 0)
     {
         printf("connect database failed: %s\n", conn.message());
         return -1;
@@ -39,7 +39,7 @@ int main(int argc,char *argv[])
     // 指定stmt对象使用的数据库连接
     stmt.connect(&conn);
 
-    // creat_table(stmt);
+    creat_table(stmt);
     
     // select_table(stmt);
 
@@ -56,8 +56,8 @@ int main(int argc,char *argv[])
     // delete_table(stmt, 1001);
     // save_file_to_clob(stmt);
     // save_file_to_blob(stmt);
-    save_clob_to_file(stmt);
-    save_blob_to_file(stmt);
+    // save_clob_to_file(stmt);
+    // save_blob_to_file(stmt);
     
     select_table(stmt);
     

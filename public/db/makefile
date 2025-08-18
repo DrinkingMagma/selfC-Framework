@@ -22,12 +22,15 @@ TARGET = $(SRCS:.cpp=)
 all: $(TARGET)
 
 # 链接时直接用 SRCS + _ooci.o
-$(TARGET): $(SRCS) _ooci.o
+$(TARGET): $(SRCS) _ooci.o lib_ooci.so
 	$(CXX) $(CFLAGS) -o $@ $(SRCS) $(ORAINCL) $(ORALIB) $(ORALIBS) _ooci.o
 
 # 只为 _ooci.cpp 生成 .o 文件
 _ooci.o: _ooci.cpp _ooci.h
 	$(CXX) $(CFLAGS) -c _ooci.cpp $(ORAINCL)
 
+lib_ooci.so:_ooci.cpp _ooci.h
+	gcc $(CFLAGS) -fPIC -shared -o lib_ooci.so _ooci.cpp $(ORAINCL)
+
 clean:
-	rm -f $(TARGET) _ooci.o
+	rm -f $(TARGET) _ooci.o lib_ooci.so
