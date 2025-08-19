@@ -57,10 +57,64 @@ int main(int argc,char *argv[])
     }
     log_file.write("connect database(%s) successed.\n", argv[2]);
 
+    // 准备插入的SQL语句
     SqlStatement stmt_ins(&conn);
     stmt_ins.prepare("INSERT INTO T_ZHOBTCODE\
-                        (obtid, cityname, provname, lat, lon, height, height, keyid)\
+                        (obtid, cityname, provname, lat, lon, height, keyid)\
                         values(:1, :2, :3, :4*100, :5*100, :6*10, SEQ_ZHOBTCODE.nextval)");
+    stmt_ins.bindin(1,st_code.obtid,5);
+    stmt_ins.bindin(2,st_code.cityname,30);
+    stmt_ins.bindin(3,st_code.provname,30);
+    stmt_ins.bindin(4,st_code.lat,10);
+    stmt_ins.bindin(5,st_code.lon,10);
+    stmt_ins.bindin(6,st_code.height,10);
+
+    // 准备更新的SQL语句
+    SqlStatement stmt_upt(&conn);
+    stmt_upt.prepare("\
+        UPDATE T_ZHOBTCODE SET cityname=:1, provname=:2, lat=:3*100, lon=:4*100, height=:5*10, upttime=sysdate \
+            WHERE obtid=:6");
+    stmt_upt.bindin(2,st_code.provname,30);
+    stmt_upt.bindin(1,st_code.cityname,30);
+    stmt_upt.bindin(3,st_code.lat,10);
+    stmt_upt.bindin(4,st_code.lon,10);
+    stmt_upt.bindin(5,st_code.height,10);
+    stmt_upt.bindin(6,st_code.obtid,5);
+
+    int ins_count = 0;
+    int upt_count = 0;
+    ctimer timer;
+
+    for(auto &aa:list_stcode)
+    {
+        // 从list中取出一条记录到st_code结构体中
+        st_code = aa;
+
+        if(stmt_ins.execute() != 0)
+        {
+            // 若违法唯一约束（表示该记录已存在）
+            if(stmt_ins.rc() == 1)
+            {
+                // 执行更新语句
+                if(stmt_upt.execute() != 0)
+                {
+                    log_file.write("update data failed: %s\n", stmt_upt.message());
+                }
+                else
+                    upt_count++;
+            }
+            else
+            {
+                log_file.write("insert data failed: %s\n", stmt_ins.message());
+            }
+        }
+        else
+            ins_count++;
+    }
+
+    log_file.write("total count: %d, insert count: %d, update count: %d\n", list_stcode.size(), ins_count, upt_count);
+
+    conn.commit();
 
     return 0;
 }
