@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
         cout << "Using: ./crtsurfdata infile outpath logfile out_file_fmt" << endl;
         cout << "Example: /root/C++/selfC++Framework/tools/bin/procctl 10 /root/C++/selfC++Framework/idc/bin/crtsurfdata /root/C++/selfC++Framework/idc/ini/stcode.ini /root/C++/selfC++Framework/idc/output/surfdata/ /root/C++/selfC++Framework/idc/log/crtsurfdata.log csv,json,xml" << endl;
 
+        cout << "brief: 根据气象站点参数文件随机生成站点观测数据文件" << endl;
         cout << "use procctl start crtsurfdata." << endl;
         cout << "infile: 气象站点参数文件名" << endl;
         cout << "outpath: 存放站点数据的目录" << endl;
@@ -76,7 +77,8 @@ int main(int argc, char *argv[])
     // 根据站点数据生成站点观测数据
     memset(str_ddatetime, 0, sizeof(str_ddatetime));
     l_time(str_ddatetime, "yyyymmddhh24miss");
-    strncpy(str_ddatetime + 12, "00", 2);
+    // snprintf：自动处理结束符
+    snprintf(str_ddatetime + 12, 3, "00");  // 3 表示缓冲区大小（含 \0）
     crt_surf_data();
 
     // 将站点观测数据保存到文件中
@@ -168,10 +170,8 @@ void crt_surf_data()
     logfile.write("crt_surf_data() sussess.\n");
     // for (auto &aa : lt_st_out_data)
     // {
-    //     // logfile.write("%s,%s,%.1f,%.1f,%d,%d,%.1f,%.1f,%.1f\n", \
-    //                          aa.obtid,aa.ddatetime,aa.t/10.0,aa.p/10.0,aa.u,aa.wd,aa.wf/10.0,aa.r/10.0,aa.vis/10.0);
-    //     printf("%s,%s,%.1f,%.1f,%d,%d,%.1f,%.1f,%.1f\n", \
-    //                       aa.obtid,aa.ddatetime,aa.t/10.0,aa.p/10.0,aa.u,aa.wd,aa.wf/10.0,aa.r/10.0,aa.vis/10.0);
+    //     // logfile.write("%s,%s,%.1f,%.1f,%d,%d,%.1f,%.1f,%.1f\n", aa.obtid,aa.ddatetime,aa.t/10.0,aa.p/10.0,aa.u,aa.wd,aa.wf/10.0,aa.r/10.0,aa.vis/10.0);
+    //     printf("%s,%s,%.1f,%.1f,%d,%d,%.1f,%.1f,%.1f\n", aa.obtid,aa.ddatetime,aa.t/10.0,aa.p/10.0,aa.u,aa.wd,aa.wf/10.0,aa.r/10.0,aa.vis/10.0);
     //     break;
     // }
 }
@@ -207,7 +207,7 @@ bool crt_surf_file(const string &out_path, const string &file_fmt)
         {
             out_file.write_line("<obtid>%s</obtid><ddatetime>%s</ddatetime>" \
                                     "<t>%.1f</t><p>%.1f</p><u>%d</u><wd>%d</wd>" \
-                                    "<wf>%.1f</wf><r>%.1f</r><vis>%.1f</vis>", \
+                                    "<wf>%.1f</wf><r>%.1f</r><vis>%.1f</vis><endl/>\n", \
                                     aa.obtid, aa.ddatetime, aa.t / 10.0, aa.p / 10.0,\
                                      aa.u, aa.wd, aa.wf / 10.0 , aa.r / 10.0, aa.vis / 10.0);
         }
@@ -217,7 +217,7 @@ bool crt_surf_file(const string &out_path, const string &file_fmt)
                                     aa.obtid, aa.ddatetime, aa.t / 10.0, aa.p / 10.0,\
                                      aa.u, aa.wd, aa.wf / 10.0 , aa.r / 10.0, aa.vis / 10.0);
 
-            static int i = 0;
+            static size_t i = 0;
             if( i != lt_st_out_data.size() - 1)
             {
                 out_file.write_line(",\n");

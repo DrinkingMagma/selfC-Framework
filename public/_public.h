@@ -8,6 +8,36 @@ using namespace std;
 namespace idc
 {
     /*-------------------------------------------------------------------*/
+    /* 注释分隔符*/
+
+    /**
+     * @brief 打印分隔线
+     * @param length 分割线长度
+     * @param ch 分割线字符
+     * @note 自动换行
+    */
+    void print_line(int length, char ch='-');
+
+    /**
+     * @brief 打印指定长度的虚线
+     * @param length 虚线长度
+     * @note 自动换行
+    */
+    void print_dash_line(int length);
+
+    /**
+     * @brief 获取指定长度的分隔线字符串
+     * @param length 分割线长度
+     * @param ch 分割线字符， 默认为 '-'
+     * @param b_is_wrap_line 是否添加换行符
+     * @note 默认不添加换行符
+    */
+    void get_separator_line(string &separator_line, int length, char ch='-', bool b_is_wrap_line=false);
+
+
+    /*-------------------------------------------------------------------*/
+
+    /*-------------------------------------------------------------------*/
     /* C++风格字符串操作的若干函数*/
 
     /**

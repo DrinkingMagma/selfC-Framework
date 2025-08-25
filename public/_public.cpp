@@ -2,6 +2,37 @@
 
 namespace idc
 {
+    void print_line(int length, char ch)
+    {
+        if(length <= 0)
+        {
+            printf("\n");
+            return;
+        }
+
+        for(int i = 0; i < length; i++)
+            putchar(ch);
+        putchar('\n');
+    }
+
+    void print_dash_line(int length)
+    {
+        print_line(length, '-');
+    }
+
+    void get_separator_line(string &separator_line, int length, char ch, bool b_is_wrap_line)
+    {
+        separator_line.clear();
+
+        if(length <= 0)
+            return;
+
+        separator_line = string(length, ch);
+
+        if(b_is_wrap_line)
+            separator_line += "\r\n";
+    }
+
     char *delete_lchr(char *str, const int cc)
     {
         if (str == nullptr)
@@ -915,18 +946,15 @@ namespace idc
 
     double ctimer::elapsed()
     {
-        gettimeofday(&m_end, 0);
+        gettimeofday(&m_end, NULL);
 
-        string str;
-        str = s_format("%ld.%06ld", m_end.tv_sec, m_end.tv_usec);
-        double d_start = stod(str);
+        // 直接计算时间差（秒 + 微秒/1e6），避免字符串转换
+        double elapsed_sec = (m_end.tv_sec - m_start.tv_sec) + 
+                            (m_end.tv_usec - m_start.tv_usec) / 1000000.0;
 
-        str = s_format("%ld.%06ld", m_start.tv_sec, m_start.tv_usec);
-        double d_end = stod(str);
+        start();  // 重置计时器
 
-        start();
-
-        return d_end - d_start;
+        return elapsed_sec;
     }
 
     bool new_dir(const string &path_or_filename, bool b_is_filename)
