@@ -1,0 +1,14 @@
+<conn_str>idc/idcpwd@ORCL</conn_str>
+<charset>Simplified Chinese_China.AL32UTF8</charset>
+<select_sql>select obtid,to_char(ddatetime,'yyyymmddhh24miss'),t,p,u,wd,wf,r,vis,keyid from T_ZHOBTMIND where keyid>:1 and obtid like '5%%%%'</select_sql>
+<field_str>obtid,ddatetime,t,p,u,wd,wf,r,vis,keyid</field_str>
+<field_len>5,19,8,8,8,8,8,8,8,15</field_len>
+<begin_file_name>ZHOBTMIND</begin_file_name>
+<end_file_name>togxpt</end_file_name>
+<out_path>/root/C++/selfC++Framework/idc/data/dmindata</out_path>
+<start_time></start_time>
+<inc_field>keyid</inc_field>
+<inc_file_name>/root/C++/selfC++Framework/idc/data/dmining/dminingoracle_ZHOBTMIND_togxpt.keyid</inc_file_name>
+<timeout>30</timeout>
+<p_name>dminingoracle_ZHOBTMIND_togxpt</p_name>
+<max_count>1000</max_count>

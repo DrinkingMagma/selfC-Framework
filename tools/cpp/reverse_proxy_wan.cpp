@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
             }
             
             // 对所有监听的socket进行监听
-            int j;
+            size_t j;
             for(j = 0; j < v_route.size(); ++j)
             {
                 // 当各路由对应的socket有事件发生时

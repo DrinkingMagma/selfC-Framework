@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 
 void EXIT(int sig)
 {
-    printf("process exit, sig = %d.\n");
+    printf("process exit, sig = %d.\n", sig);
 
     exit(0); 
 }

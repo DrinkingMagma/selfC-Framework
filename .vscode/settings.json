@@ -7,6 +7,10 @@
         "istream": "cpp",
         "cerrno": "cpp",
         "cmath": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
     }
 }

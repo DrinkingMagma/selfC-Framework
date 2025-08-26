@@ -1680,3 +1680,9 @@
 2025-08-19 09:27:44 total count: 839, insert count: 0, update count: 0
 2025-08-19 09:29:57 connect database(idc/idcpwd@ORCL) successed.
 2025-08-19 09:29:57 total count: 839, insert count: 839, update count: 0
+2025-08-26 21:21:33 connect database(idc/idcpwd@ORCL) successed.
+2025-08-26 21:21:34 total count: 839, insert count: 0, update count: 839
+2025-08-26 21:23:27 connect database(idc/idcpwd@ORCL) successed.
+2025-08-26 21:23:29 total count: 839, insert count: 1, update count: 838
+2025-08-26 21:24:58 connect database(idc/idcpwd@ORCL) successed.
+2025-08-26 21:24:59 total count: 839, insert count: 839, update count: 0

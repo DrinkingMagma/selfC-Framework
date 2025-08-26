@@ -250,3 +250,9 @@
 2025-08-25 10:11:49 crt_surf_data() sussess.
 2025-08-25 10:11:49 end write_data_to_file, /root/C++/selfC++Framework/idc/output/surfdata//SURF_ZH_20250825101100_207341.xml, xml, 839
 2025-08-25 10:11:49 crtsurfdata exit.
+2025-08-25 11:55:24 crtsurfdata started.
+2025-08-25 11:55:24 load_data(/root/C++/selfC++Framework/idc/ini/stcode.ini) sussess.
+2025-08-25 11:55:24 共有839个站点
+2025-08-25 11:55:24 crt_surf_data() sussess.
+2025-08-25 11:55:24 end write_data_to_file, /root/C++/selfC++Framework/idc/output/surfdata//SURF_ZH_20250825115500_212851.xml, xml, 839
+2025-08-25 11:55:24 crtsurfdata exit.

@@ -1,7 +1,8 @@
 CXX := g++
-INCLUDEDIR := -I../../public/
-LIBDIR := -L../../public/
-LIBS := -l_public -l_ftp
+INCLUDEDIR := -I../../public/ -I../../public/db/ -I$(ORACLE_HOME)/rdbms/public/
+CFLAGS = -g -Wall -Wno-write-strings
+LIBDIR := -L../../public/ -L../../public/db/ -L$(ORACLE_HOME)/lib/
+LIBS := -l_public -l_ftp -l_ooci -lclntsh
 
 # 搜集所有cpp文件
 TEST_SRCS := $(wildcard *.cpp)
@@ -11,7 +12,7 @@ TEST_BINS := $(TEST_SRCS:.cpp=)
 all:$(TEST_BINS)
 
 %: %.cpp
-	$(CXX) $(INCLUDEDIR) $(CXXFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
 
 # 清理目标
