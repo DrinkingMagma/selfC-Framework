@@ -39,9 +39,9 @@ int main(int argc,char *argv[])
     // 指定stmt对象使用的数据库连接
     stmt.connect(&conn);
 
-    creat_table(stmt);
+    // creat_table(stmt);
     
-    // select_table(stmt);
+    select_table(stmt);
 
     // ST_User user;
     // memset(&user, 0, sizeof(user));
@@ -50,7 +50,6 @@ int main(int argc,char *argv[])
     // user.weight = 75.5;
     // strcpy(user.birthday, "1990-05-20 10:30:00");
     // strcpy(user.notes, "这是一个测试用户，用于演示插入功能。");
-
     // insert_table(stmt, user);
 
     // delete_table(stmt, 1001);
@@ -77,6 +76,7 @@ void creat_table(SqlStatement &stmt)
             weight NUMBER(8,2),\
             birthday DATE,\
             notes VARCHAR2(2000),\
+            text CLOB,\
             picture BLOB)\
     ");
 

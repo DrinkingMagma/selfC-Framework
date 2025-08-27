@@ -5,11 +5,17 @@ LIBDIR := -L../../public/ -L../../public/db/ -L$(ORACLE_HOME)/lib/
 LIBS := -l_public -l_ftp -l_ooci -lclntsh
 
 # 搜集所有cpp文件
-TEST_SRCS := $(wildcard *.cpp)
-# 生成对应的可执行文件列表
-TEST_BINS := $(TEST_SRCS:.cpp=)
+SRCS := $(wildcard *.cpp)
+SRCS := $(filter-out _tools.cpp, $(SRCS))
 
-all:$(TEST_BINS)
+# 生成对应的可执行文件列表
+BINS := $(SRCS:.cpp=)
+
+all:$(BINS)
+
+xmltodb: xmltodb.cpp _tools.cpp
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
+	cp -f $@ ../bin/
 
 %: %.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
@@ -17,4 +23,4 @@ all:$(TEST_BINS)
 
 # 清理目标
 clean:
-	rm -f $(TEST_BINS)
+	rm -f $(BINS)
