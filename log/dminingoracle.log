@@ -1,0 +1,12 @@
+2025-08-29 09:28:18 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:29:06 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:29:12 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:29:12 get last max_inc_value(keyid = 0)
+2025-08-29 09:29:12 generate xml file "/root/C++/selfC++Framework/idc/data/dmindata/ZHOBTMIND_20250829092912_togxpt_1.xml", counts = 839
+2025-08-29 09:30:56 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:35:29 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:35:29 get last max_inc_value(keyid = 0)
+2025-08-29 09:35:29 generate xml file "/root/C++/selfC++Framework/idc/data/dmindata/ZHOBTMIND_20250829093529_togxpt_1.xml", counts = 839
+2025-08-29 09:35:37 connect database(idc/idcpwd@ORCL) ok.
+2025-08-29 09:35:37 get last max_inc_value(keyid = 0)
+2025-08-29 09:35:37 generate xml file "/root/C++/selfC++Framework/idc/data/dmindata/ZHOBTMIND_20250829093537_togxpt_1.xml", counts = 839

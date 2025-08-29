@@ -1355,30 +1355,39 @@ namespace idc
     bool cifile::read_line(string &buf, const string &end_sign)
     {
         buf.clear();
-
         string str_line;
 
-        while(true)
+        while (getline(f_in, str_line))
         {
-            getline(f_in, str_line);
-
-            if(f_in.eof())
-                break;
-
             buf += str_line;
 
-            if(end_sign == "")
+            if (end_sign == "")
+            {
+                // 如果没有指定结束符，读取单行（物理行）即成功返回。
                 return true;
+            }
             else
             {
-                if(buf.find(end_sign, buf.size() - end_sign.size()) != string::npos)
+                // 检查缓冲区是否以指定的 end_sign 结尾。
+                if (buf.length() >= end_sign.length() &&
+                    buf.compare(buf.length() - end_sign.length(), end_sign.length(), end_sign) == 0)
+                {
+                    // 找到了结束标志，成功返回。
                     return true;
+                }
             }
 
+            // 如果还没找到 end_sign，说明正在读取一个逻辑上的“多行块”，
+            // 需要继续读取文件的下一行。此时，我们将 getline “消耗”掉的换行符加回来，
+            // 以保持多行内容的原始格式。
             buf += "\n";
         }
 
-        return false;
+        // 当循环因为到达文件末尾而结束时，如果 buf 中有任何内容，
+        // 说明我们成功读取了文件的最后一部分数据。此时应该返回 true，
+        // 以确保调用方能够处理这最后的数据。
+        // 如果文件从一开始就是空的，或者已经读完，buf 会为空，返回 false。
+        return !buf.empty();
     }
 
     bool clogfile::open(const string &filename, const ios::openmode mode, const bool b_backup, bool ben_buffer)
