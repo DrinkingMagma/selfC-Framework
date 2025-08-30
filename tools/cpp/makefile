@@ -21,6 +21,14 @@ migratetable: migratetable.cpp _tools.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
 
+syncref: syncref.cpp _tools.cpp
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
+	cp -f $@ ../bin/
+
+syncinc: syncinc.cpp _tools.cpp
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
+	cp -f $@ ../bin/
+
 %: %.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
