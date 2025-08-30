@@ -1,0 +1,8 @@
+<conn_str>idc/idcpwd@ORCL</conn_str>
+<table_name>T_ZHOBTMIND1</table_name>
+<key_col>rowid</keycol>
+<where>where ddatetime < sysdate-0.03</where>
+<max_count>10</max_count>
+<start_time>22,23,00,01,02,03,04,05,06,13</start_time>
+<time_out>120</time_out>
+<p_name>deletetable_ZHOBTMIND1</p_name>

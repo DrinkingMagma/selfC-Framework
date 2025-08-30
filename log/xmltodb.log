@@ -1,0 +1,6 @@
+2025-08-29 10:17:54 config_file.open_file(/root/C++/selfC++Framework/tools/bin/xmltodb_config.xml) failed.
+2025-08-29 10:18:58 config_file.open_file(/root/C++/selfC++Framework/tools/bin/xmltodb_config.xml) failed.
+2025-08-29 10:19:15 load config file(/root/C++/selfC++Framework/tools/cpp/xmltodb_config.xml) success.
+2025-08-29 10:28:01 conn_str is null.
+2025-08-29 10:28:01 _xml_to_args() failed.
+2025-08-29 10:28:59 load config file(/root/C++/selfC++Framework/tools/cpp/xmltodb_config.xml) success.

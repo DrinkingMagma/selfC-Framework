@@ -17,6 +17,10 @@ xmltodb: xmltodb.cpp _tools.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
 
+migratetable: migratetable.cpp _tools.cpp
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
+	cp -f $@ ../bin/
+
 %: %.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/

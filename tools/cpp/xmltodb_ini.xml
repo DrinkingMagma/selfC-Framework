@@ -1,0 +1,6 @@
+<?xml version== "1.0" encoding = "UTF-8"?>
+
+<xmltodb>
+    <file_name>ZHOBTCODE_*.XML</file_name><table_name>T_ZHOBTCODE1</table_name><upt_flag>2</upt_flag><exec_sql>truncate table T_ZHOBTCODE1</truncate><endl/>
+    <file_name>ZHOBTMIND_*.XML</file_name><table_name>T_ZHOBTMIND1</table_name><upt_flag>1</upt_flag><exec_sql>truncate table T_ZHOBTMIND1</truncate><endl/>
+</xmltodb>

@@ -1,9 +1,9 @@
-<connstr>idc/idcpwd@ORCL</connstr>
+<conn_str>idc/idcpwd@ORCL</conn_str>
 <charset>Simplified Chinese_China.AL32UTF8</charset>
-<inifilename>/root/C++/selfC++Framework/tools/cpp/xmltodb_ini.xml</inifilename>
-<xmlpath>/root/C++/selfC++Framework/idc/data/xmltodb/vip</xmlpath>
-<xmlpathbak>/root/C++/selfC++Framework/idc/data/xmltodb/vip_bak</xmlpathbak>
-<xmlpatherr>/root/C++/selfC++Framework/idc/data/xmltodb/vip_err</xmlpatherr>
-<timetvl>5</timetvl>
-<timeout>50</timeout>
-<pname>xmltodb_vip</pname>
+<ini_file_name>/root/C++/selfC++Framework/tools/cpp/xmltodb_ini.xml</ini_file_name>
+<xml_path>/root/C++/selfC++Framework/idc/data/xmltodb/vip</xml_path>
+<bak_xml_path>/root/C++/selfC++Framework/idc/data/xmltodb/vip_bak</bak_xml_path>
+<err_xml_path>/root/C++/selfC++Framework/idc/data/xmltodb/vip_err</err_xml_path>
+<time_tvl>5</time_tvl>
+<time_out>50</time_out>
+<p_name>xmltodb_vip</p_name>
