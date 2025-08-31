@@ -1,0 +1,14 @@
+<!-- T_ZHOBTMIND1@db128表中全部的记录增量同步到T_ZHOBTMIND2中 -->
+<local_conn_str>idc/idcpwd@ORCL</local_conn_str>
+<remote_conn_str>idc/idcpwd@ORCL</remote_conn_str>
+<charset>Simplified Chinese_China.AL32UTF8</charset>
+<remote_table_name>T_ZHOBTMIND1</remote_t_ablename>
+<local_table_name>T_ZHOBTMIND2</local_t_ablename>
+<remote_cols>obtid,ddatetime,t,p,u,wd,wf,r,vis,upttime,keyid</remote_cols>
+<local_cols>stid,ddatetime,t,p,u,wd,wf,r,vis,upttime,recid</local_cols>
+<remote_key_col>keyid</remote_key_col>
+<local_key_col>recid</local_key_col>
+<max_count>300</max_count>
+<time_tvl>2</time_tvl>
+<time_out>50</time_out>
+<p_name>syncinc_ZHOBTMIND2</p_name>

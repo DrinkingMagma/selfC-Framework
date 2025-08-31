@@ -1,0 +1,17 @@
+<!-- 分批同步，将T_ZHOBTMIND1@db128同步到T_ZHOBTMIND2 -->
+<local_conn_str>idc/idcpwd@ORCL</local_conn_str>
+<charset>Simplified Chinese_China.AL32UTF8</charset>
+<link_table_name>T_ZHOBTMIND1@db128</link_table_name>
+<local_table_name>T_ZHOBTMIND2</local_t_ablename>
+<remote_cols>obtid,ddatetime,t,p,u,wd,wf,r,vis,upttime,keyid</remote_cols>
+<local_cols>stid,ddatetime,t,p,u,wd,wf,r,vis,upttime,recid</local_cols>
+<remote_where>where ddatetime > sysdate - 10/1440</remote_where>
+<sync_type>2</sync_type>
+<remote_conn_str>idc/idcpwd@ORCL</remote_conn_str>
+<remote_table_name>T_ZHOBTMIND1</remote_table_name>
+<remote_key_col>keyid</remote_key_col>
+<local_key_col>recid</local_key_col>
+<key_len>15</key_len>
+<max_count>10</max_count>
+<time_out>50</time_out>
+<p_name>syncref_ZHOBTMIND2</p_name>

@@ -1,0 +1,18 @@
+<!-- 分批同步，将T_ZHOBTOCDE1@db128同步到T_ZHOBTCODE3 -->
+<!-- 因测试需要，xmltodb文件每次会删除T_ZHOBTCODE1@db128表中的数据，重新入库，因此keyid会变，所以一下采用obt_id -->
+<local_conn_str>idc/idcpwd@ORCL</local_conn_str>
+<charset>Simplified Chinese_China.AL32UTF8</charset>
+<link_table_name>T_ZHOBTCODE1@db128</link_table_name>
+<local_table_name>T_ZHOBTCODE3</local_t_ablename>
+<remote_cols>obtid,cityname,provname,lat,lon,height,upttime,keyid</remote_cols>
+<local_cols>stid,cityname,provname,lat,lon,height,upttime,recid</local_cols>
+<remote_where>where obtid like '57%%%%'</remote_where>
+<sync_type>2</sync_type>
+<remote_conn_str>idc/idcpwd@ORCL</remote_conn_str>
+<remote_table_name>T_ZHOBTCODE1</remote_table_name>
+<remote_key_col>obtid</remote_key_col>
+<local_key_col>stid</local_key_col>
+<key_len>5</key_len>
+<max_count>10</max_count>
+<time_out>50</time_out>
+<p_name>syncref_ZHOBTCODE3</p_name>
