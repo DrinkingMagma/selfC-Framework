@@ -1,4 +1,4 @@
-<!-- T_ZHOBTMIND1@db128表中全部的记录增量同步到T_ZHOBTMIND2中 -->
+<!-- T_ZHOBTMIND1@db_self_1表中全部的记录增量同步到T_ZHOBTMIND2中 -->
 <local_conn_str>idc/idcpwd@ORCL</local_conn_str>
 <remote_conn_str>idc/idcpwd@ORCL</remote_conn_str>
 <charset>Simplified Chinese_China.AL32UTF8</charset>

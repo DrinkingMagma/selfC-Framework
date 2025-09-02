@@ -1,9 +1,9 @@
-<!-- 将T_ZHOBTMIND1@db128表中满足\"and obtid like '57%%'\"的记录增量同步到T_ZHOBTMIND3中 -->
+<!-- 将T_ZHOBTMIND1@db_self_1表中满足\"and obtid like '57%%'\"的记录增量同步到T_ZHOBTMIND3中 -->
 <local_conn_str>idc/idcpwd@ORCL</local_conn_str>
 <remote_conn_str>idc/idcpwd@ORCL</remote_conn_str>
 <charset>Simplified Chinese_China.AL32UTF8</charset>
 <remote_table_name>T_ZHOBTMIND1</remote_t_ablename>
-<link_table_name>T_ZHOBTMIND1@db128</link_table_name>
+<link_table_name>T_ZHOBTMIND1@db_self_1</link_table_name>
 <local_table_name>T_ZHOBTMIND3</local_t_ablename>
 <remote_cols>obtid,ddatetime,t,p,u,wd,wf,r,vis,upttime,keyid</remote_cols>
 <local_cols>stid,ddatetime,t,p,u,wd,wf,r,vis,upttime,recid</local_cols>

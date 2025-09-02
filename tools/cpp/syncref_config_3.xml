@@ -1,7 +1,7 @@
-<!-- 分批同步，将T_ZHOBTMIND1@db128同步到T_ZHOBTMIND2 -->
+<!-- 分批同步，将T_ZHOBTMIND1@db_self_1同步到T_ZHOBTMIND2 -->
 <local_conn_str>idc/idcpwd@ORCL</local_conn_str>
 <charset>Simplified Chinese_China.AL32UTF8</charset>
-<link_table_name>T_ZHOBTMIND1@db128</link_table_name>
+<link_table_name>T_ZHOBTMIND1@db_self_1</link_table_name>
 <local_table_name>T_ZHOBTMIND2</local_t_ablename>
 <remote_cols>obtid,ddatetime,t,p,u,wd,wf,r,vis,upttime,keyid</remote_cols>
 <local_cols>stid,ddatetime,t,p,u,wd,wf,r,vis,upttime,recid</local_cols>
