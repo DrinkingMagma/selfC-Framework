@@ -29,6 +29,9 @@ syncinc: syncinc.cpp _tools.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
 
+webserver: webserver.cpp
+	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS) -pthread
+	cp -f $@ ../bin/
 %: %.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $< $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/

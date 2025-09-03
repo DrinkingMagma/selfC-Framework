@@ -1,0 +1,8 @@
+2025-09-02 22:53:47 Program exit, sig = 2
+2025-09-02 22:53:47 recv_func(): recv event, fd = 5, events = 1.
+2025-09-02 22:53:47 recv_func(): recv thread will exit.
+2025-09-02 22:53:47 work_func(): work thread(2) will exit.
+2025-09-02 22:53:47 send_func(): cur fd = 3(event = 1)
+2025-09-02 22:53:47 send_func(): send thread will exit.
+2025-09-02 22:53:47 work_func(): work thread(1) will exit.
+2025-09-02 22:53:47 work_func(): work thread(3) will exit.
