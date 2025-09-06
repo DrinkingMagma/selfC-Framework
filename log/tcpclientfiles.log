@@ -1,0 +1,26 @@
+2025-09-05 14:22:53 tcp_client.connect(192.168.59.132, 5005) failed.
+2025-09-05 14:22:53 Process exit, sig: -1
+2025-09-05 14:23:47 Login tcp server(192.168.59.132:5005) success.
+2025-09-05 14:26:18 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:28 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:38 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:48 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:59 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:09 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:19 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:29 send file(/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:37 Process exit, sig: 2
+2025-09-05 14:29:09 Login tcp server(192.168.59.132:5005) success.
+2025-09-05 14:29:29 tcp_client.read(): recv server message failed.
+2025-09-05 14:30:13 Login tcp server(192.168.59.132:5005) success.
+2025-09-05 14:30:33 tcp_client.read(): recv server message failed.
+2025-09-05 14:37:05 Login tcp server(192.168.59.132:5005) success.
+2025-09-05 14:37:05 recv file(/tmp/tcp/client/test1.txt) from (/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:05 recv file(/tmp/tcp/client/test2.txt) from (/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:15 recv file(/tmp/tcp/client/test1.txt) from (/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:16 recv file(/tmp/tcp/client/test2.txt) from (/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:26 recv file(/tmp/tcp/client/test1.txt) from (/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:26 recv file(/tmp/tcp/client/test2.txt) from (/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:36 recv file(/tmp/tcp/client/test1.txt) from (/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:36 recv file(/tmp/tcp/client/test2.txt) from (/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:43 Process exit, sig: 2

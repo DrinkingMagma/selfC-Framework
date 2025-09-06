@@ -33,7 +33,7 @@ namespace idc
             /**
              * @brief 初始化数据成员
             */
-            void init_dada();
+            void init_data();
 
             /**
              * @brief 登录ftp服务器

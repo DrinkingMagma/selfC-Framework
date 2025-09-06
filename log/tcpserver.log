@@ -1,0 +1,40 @@
+2025-09-05 14:23:43 ---------------------------------
+2025-09-05 14:23:43 tcp_server.init_server(5005) success.
+2025-09-05 14:23:47 accept a client(192.168.59.132).
+2025-09-05 14:23:47 Tcp client: 192.168.59.132 login success.
+2025-09-05 14:26:18 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:28 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:38 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:48 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:26:59 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:09 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:19 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:29 recv file(/tmp/tcp/server/test2.txt) from (/tmp/tcp/client/test2.txt) ...... success.
+2025-09-05 14:27:37 tcp_server.read(): recv server message failed.
+2025-09-05 14:27:37 Child process exit, sig = 0.
+2025-09-05 14:29:09 accept a client(192.168.59.132).
+2025-09-05 14:29:09 Tcp client: 192.168.59.132 login success.
+2025-09-05 14:29:29 tcp_server.read(): recv server message failed.
+2025-09-05 14:29:29 Child process exit, sig = 0.
+2025-09-05 14:29:55 Father process exit, sig = 2.
+2025-09-05 14:30:05 ---------------------------------
+2025-09-05 14:30:05 tcp_server.init_server(5005) success.
+2025-09-05 14:30:13 accept a client(192.168.59.132).
+2025-09-05 14:30:13 Tcp client: 192.168.59.132 login success.
+2025-09-05 14:30:33 tcp_server.read(): recv server message failed.
+2025-09-05 14:30:33 Child process exit, sig = 0.
+2025-09-05 14:36:05 Father process exit, sig = 2.
+2025-09-05 14:37:02 ---------------------------------
+2025-09-05 14:37:02 tcp_server.init_server(5005) success.
+2025-09-05 14:37:05 accept a client(192.168.59.132).
+2025-09-05 14:37:05 Tcp client: 192.168.59.132 login success.
+2025-09-05 14:37:05 send file(/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:05 send file(/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:15 send file(/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:16 send file(/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:26 send file(/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:26 send file(/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:36 send file(/tmp/tcp/server/test1.txt) ...... success.
+2025-09-05 14:37:36 send file(/tmp/tcp/server/test2.txt) ...... success.
+2025-09-05 14:37:46 tcp_server.write():active test send message failed.
+2025-09-05 14:37:46 Child process exit, sig = 0.

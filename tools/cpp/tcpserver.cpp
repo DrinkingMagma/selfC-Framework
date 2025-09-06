@@ -3,7 +3,7 @@ using namespace idc;
 
 // 程序运行的参数结构体
 struct st_arg{
-    int  client_type;               // 客户端类型：1-上传文件；2-下载文件
+    int  client_type;               // 客户端类型：1-下载文件；2-上传文件
     char server_path[256];          // 服务器端文件的存放路径
     int file_process_type;          // 文件下载成功后原文件的处理方式：1-不处理；2-删除；3-备份
     char server_path_bak[256];      // 服务器端文件的备份路径
@@ -91,9 +91,9 @@ int main(int argc, char **argv)
         pactive.add_p_info(arg.time_out, arg.process_name);
 
         if(arg.client_type == 1)
-            recvFilesMain();
-        else if(arg.client_type == 2)
             sendFilesMain();
+        else if(arg.client_type == 2)
+            recvFilesMain();
         else
             log_file.write("client_type error.\n");
 
@@ -252,7 +252,7 @@ bool recvFile(const string &file_name, const string &file_mtime, int file_size)
     {
         memset(buffer, 0, sizeof(buffer));
 
-        if(file_size - total_bytes > sizeof(buffer))
+        if((size_t)(file_size - total_bytes) > sizeof(buffer))
             on_read = sizeof(buffer);
         else
             on_read = file_size - total_bytes;
@@ -392,7 +392,7 @@ bool sendFile(const string &file_name, const int file_size)
     {
         memset(buffer, 0, sizeof(buffer));
 
-        if(file_size - total_bytes > sizeof(buffer))
+        if((size_t)(file_size - total_bytes) > sizeof(buffer))
             on_read = sizeof(buffer);
         else
             on_read = file_size - total_bytes;

@@ -1,5 +1,5 @@
 /**
- * @brief 数据访问结构模块
+ * @brief 数据访问结构模块（数据访问接口模块）
 */
 
 #include "_public.h"

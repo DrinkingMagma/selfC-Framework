@@ -1,3 +1,6 @@
+/**
+ * @brief 将远程ftp服务端的文件下载到本地目录中
+*/
 #include "_public.h"
 #include "_ftp.h"
 
@@ -141,14 +144,14 @@ int main(int argc, char *argv[])
         s_format(str_remote_filename, "%s/%s", starg.remote_path, aa.filename.c_str());
         s_format(str_local_filename, "%s/%s", starg.local_path, aa.filename.c_str());
 
-        logfile.write("get file %s to %s ...... \n", str_remote_filename.c_str(), str_local_filename.c_str());
+        logfile.write("get file %s to %s ...... ", str_remote_filename.c_str(), str_local_filename.c_str());
 
         if(ftp.get(str_remote_filename, str_local_filename, starg.check_mtime) == false)
         {
-            logfile.write("failed: %s\n", ftp.response());
+            logfile << "failed: " << ftp.response() << "\n";
             return -1;
         }
-        logfile.write("finished.\n");
+        logfile << "finished.\n";
 
         pactive.upt_atime();
 
@@ -157,7 +160,7 @@ int main(int argc, char *argv[])
             append_downloaded_files(aa);
 
         // 将服务端的文件删除
-        if(starg.remote_file_processing_type == 2)
+        else if(starg.remote_file_processing_type == 2)
         {
             if(ftp.ftpdelete(str_remote_filename) == false)
             {
@@ -167,7 +170,7 @@ int main(int argc, char *argv[])
         }
 
         // 将服务端的文件移动到备份目录
-        if(starg.remote_file_processing_type == 3)
+        else if(starg.remote_file_processing_type == 3)
         {
             string str_remote_filename_bak = s_format("%s/%s", starg.remote_path_bak, aa.filename);
             if(ftp.ftprename(str_remote_filename, str_remote_filename_bak) == false)
@@ -189,30 +192,30 @@ void _help()
 {
     printf("\n");
     printf("Using: /root/C++/selfC++Framework/tools/bin/ftpgetfiles log_filename xml_filename\n");
-    printf("Example: /root/C++/selfC++Framework/tools/bin/procctl 30 /root/C++/selfC++Framework/tools/bin/ftpgetfiles /root/C++/selfC++Framework/log/ftpgetfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
-    printf("\n\n");
+    printf("Example 1: /root/C++/selfC++Framework/tools/bin/ftpgetfiles /root/C++/selfC++Framework/log/ftpgetfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
+    printf("Example 2: /root/C++/selfC++Framework/tools/bin/procctl 30 /root/C++/selfC++Framework/tools/bin/ftpgetfiles /root/C++/selfC++Framework/log/ftpgetfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
     printf("功能：将远程ftp服务端的文件下载到本地目录\n");
     printf("参数说明：\n"
            "log_filename: 日志文件名\n"
            "xml_filename: 参数配置文件，具体参数如下：\n");
-    printf("<host>192.168.150.128:21</host> 远程服务端的IP和端口。\n");
-    printf("<mode>1</mode> 传输模式，1-被动模式，2-主动模式，缺省采用被动模式。\n");
-    printf("<username>wucz</username> 远程服务端ftp的用户名。\n");
-    printf("<password>oraccle</password> 远程服务端ftp的密码。\n");
-    printf("<remote_path>/tmp/idc/surfdata</remote_path> 远程服务端存放文件的目录。\n");
-    printf("<localpath>/idcdata/surfdata</localpath> 本地文件存放的目录。\n");
-    printf("<matchrules>SURF_ZH*.XML,SURF_ZH*.CSV</matchrules> 待下载文件匹配的规则。"
+    printf("host: 远程服务端的IP和端口。\n");
+    printf("mode: 传输模式，1-被动模式，2-主动模式，缺省采用被动模式。\n");
+    printf("username: 远程服务端ftp的用户名。\n");
+    printf("password: 远程服务端ftp的密码。\n");
+    printf("remote_path: 远程服务端存放文件的目录。\n");
+    printf("localpath: 本地文件存放的目录。\n");
+    printf("matchrules: 待下载文件匹配的规则。"
            "不匹配的文件不会被下载，本字段尽可能设置精确，不建议用*匹配全部的文件。\n");
-    printf("<ptype>1</ptype> 文件下载成功后，远程服务端文件的处理方式："
+    printf("ptype: 文件下载成功后，远程服务端文件的处理方式："
            "1-什么也不做；2-删除；3-备份，如果为3，还要指定备份的目录。\n");
-    printf("<remote_pathbak>/tmp/idc/surfdatabak</remote_pathbak> 文件下载成功后，服务端文件的备份目录，"
+    printf("remote_pathbak: 文件下载成功后，服务端文件的备份目录，"
            "此参数只有当ptype=3时才有效。\n");
-    printf("<okfilename>/idcdata/ftplist/ftpgetfiles_test.xml</okfilename> 已下载成功文件名清单，"
+    printf("okfilename: 已下载成功文件名清单，"
            "此参数只有当ptype=1时才有效。\n");
-    printf("<checkmtime>true</checkmtime> 是否需要检查服务端文件的时间，true-需要，false-不需要，"
+    printf("checkmtime: 是否需要检查服务端文件的时间，true-需要，false-不需要，"
            "此参数只有当ptype=1时才有效，缺省为false。\n");
-    printf("<timeout>30</timeout> 下载文件超时时间，单位：秒，视文件大小和网络带宽而定。\n");
-    printf("<pname>ftpgetfiles_test</pname> 进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n\n\n");
+    printf("timeout: 下载文件超时时间，单位：秒，视文件大小和网络带宽而定。\n");
+    printf("pname: 进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n\n\n");
 }
 
 /**
@@ -323,7 +326,7 @@ bool _xmltoarg(const char *str_xml_buffer)
 }
 
 /**
- * @brief 将starg.geted_filename文件中存放到m_downloaded_files中
+ * @brief 将starg.geted_filename文件中的内容存放到m_downloaded_files中
 */
 bool load_downloaded_files()
 {
@@ -410,6 +413,9 @@ bool get_excluded_and_download_files()
     for(auto &aa : lst_remote_files)
     {
         auto it = m_downloaded_files.find(aa.filename);
+        
+        // logfile.write("aa.filename = %s, aa.mtime = %s\n", aa.filename.c_str(), aa.mtime.c_str());
+        // logfile.write("it->second = %s\n", it->second.c_str());
         if(it != m_downloaded_files.end())
         {
             if(starg.check_mtime == true)
@@ -425,6 +431,11 @@ bool get_excluded_and_download_files()
         else
             lst_download_files.push_back(aa);
     }
+
+    if(lst_download_files.size() == 0)
+        logfile.write("no file need to download\n");
+    else
+        logfile.write("There are %d files need to download.\n", lst_download_files.size());
 
     return true;
 }
@@ -466,7 +477,7 @@ bool append_downloaded_files(struct st_file_info &stfile_info)
         return false;
     }
 
-    file.write_line("<filename>%s</filename><mtime>%s</mtime>\n", stfile_info.filename.c_str(), stfile_info.mtime);
+    file.write_line("<filename>%s</filename><mtime>%s</mtime>\n", stfile_info.filename.c_str(), stfile_info.mtime.c_str());
 
     return true;
 }

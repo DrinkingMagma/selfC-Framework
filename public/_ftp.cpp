@@ -6,7 +6,7 @@ namespace idc
     {
         m_ftp_conn = 0;
 
-        init_dada();
+        init_data();
 
         FtpInit(); 
 
@@ -20,7 +20,7 @@ namespace idc
         logout();
     }
 
-    void cftpclient::init_dada()
+    void cftpclient::init_data()
     {
         m_size = 0;
         m_mtime.clear();

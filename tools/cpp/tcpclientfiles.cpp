@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
         EXIT(-1);
     }
 
-    if(arg.client_type == 2)
+    if(arg.client_type == 1)
         _tcpGetFiles();
     else
     {
@@ -371,7 +371,7 @@ bool recvFile(const string &file_name, const string &mtime, int file_size)
     {
         memset(buffer, 0, sizeof(buffer));
 
-        if(file_size - total_bytes > sizeof(buffer))
+        if((size_t)(file_size - total_bytes) > sizeof(buffer))
             on_read = sizeof(buffer);
         else
             on_read = file_size - total_bytes;
@@ -497,7 +497,7 @@ bool sendFile(const string &file_name, const int file_size)
     {
         memset(buffer, 0, sizeof(buffer));
 
-        if(file_size - total_bytes > sizeof(buffer))
+        if((size_t)(file_size - total_bytes) > sizeof(buffer))
             on_read = sizeof(buffer);
         else
             on_read = file_size - total_bytes;

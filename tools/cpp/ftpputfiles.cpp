@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 
         get_excluded_and_upload_files();
 
-        write_excluded_files;
+        write_excluded_files();
     }
     else
         lst_local_files.swap(lst_upload_files);
@@ -126,14 +126,14 @@ int main(int argc, char *argv[])
         s_format(strremote_filename, "%s/%s", starg.remote_path, aa.filename.c_str());
         s_format(strlocal_filename, "%s/%s", starg.local_path, aa.filename.c_str());
 
-        logfile.write("put %s -----> %s ......\n", strlocal_filename.c_str(), strremote_filename.c_str());
+        logfile.write("put %s -----> %s ...... ", strlocal_filename.c_str(), strremote_filename.c_str());
 
         if(ftp.put(strlocal_filename, strremote_filename) == false)
         {
-            logfile.write("failed: %s\n", ftp.response());
+            logfile << "failed: " << ftp.response() << "\n";
             return -1;
         }
-        logfile.write("finished.\n");
+        logfile << "finished.\n" ;
 
         pactive.upt_atime();
 
@@ -168,25 +168,25 @@ void _help()
 {
     printf("\n");
     printf("Using: /root/C++/selfC++Framework/tools/bin/ftpgetfiles log_filename filename\n");
-    printf("Example: /root/C++/selfC++Frame/tools/bin/procctl/ 30 /root/C++/selfC++Framework/tools/bin/ftpputfiles /root/C++/selfC++Framework/log/ftpputfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
-    printf("\n\n");
+    printf("Example 1: /root/C++/selfC++Framework/tools/bin/ftpputfiles /root/C++/selfC++Framework/log/ftpputfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
+    printf("Example 2: /root/C++/selfC++Frame/tools/bin/procctl/ 30 /root/C++/selfC++Framework/tools/bin/ftpputfiles /root/C++/selfC++Framework/log/ftpputfiles.log /root/C++/selfC++Framework/tools/cpp/ftpgetfiles_config.xml\n");
     printf("功能：将本地目录中的文件上传到服务器的远程目录中。\n");
     printf("参数说明：\n"
            "log_filename: 日志文件名\n"
            "filename: 文件的下载参数， 具体如下：\n");
-    printf("<host>127.0.0.1:21</host> 远程服务端的IP和端口。\n");
-    printf("<mode>1</mode> 传输模式，1-被动模式，2-主动模式，缺省采用被动模式。\n");
-    printf("<username>wucz</username> 远程服务端ftp的用户名。\n");
-    printf("<password>wuczpwd</password> 远程服务端ftp的密码。\n");
-    printf("<remotepath>/tmp/ftpputest</remotepath> 远程服务端存放文件的目录。\n");
-    printf("<localpath>/tmp/idc/surfdata</localpath> 本地文件存放的目录。\n");
-    printf("<matchrules>SURF_ZH*.JSON</matchrules> 待上传文件匹配的规则。"
+    printf("host: 远程服务端的IP和端口。\n");
+    printf("mode: 传输模式，1-被动模式，2-主动模式，缺省采用被动模式。\n");
+    printf("username: 远程服务端ftp的用户名。\n");
+    printf("password: 远程服务端ftp的密码。\n");
+    printf("remotepath: 远程服务端存放文件的目录。\n");
+    printf("localpath: 本地文件存放的目录。\n");
+    printf("matchrules: 待上传文件匹配的规则。"
            "不匹配的文件不会被上传，本字段尽可能设置精确，不建议用*匹配全部的文件。\n");
-    printf("<ptype>1</ptype> 文件上传成功后，本地文件的处理方式：1-什么也不做；2-删除；3-备份，如果为3，还要指定备份的目录。\n");
-    printf("<localpathbak>/tmp/idc/surfdatabak</localpathbak> 文件上传成功后，本地文件的备份目录，此参数只有当ptype=3时才有效。\n");
-    printf("<okfilename>/idcdata/ftplist/ftpputfiles_surfdata.xml</okfilename> 已上传成功文件名清单，此参数只有当ptype=1时才有效。\n");
-    printf("<timeout>80</timeout> 上传文件超时时间，单位：秒，视文件大小和网络带宽而定。\n");
-    printf("<pname>ftpputfiles_surfdata</pname> 进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n\n\n");
+    printf("ptype: 文件上传成功后，本地文件的处理方式：1-什么也不做；2-删除；3-备份，如果为3，还要指定备份的目录。\n");
+    printf("localpathbak: 文件上传成功后，本地文件的备份目录，此参数只有当ptype=3时才有效。\n");
+    printf("okfilename: 已上传成功文件名清单，此参数只有当ptype=1时才有效。\n");
+    printf("timeout: 上传文件超时时间，单位：秒，视文件大小和网络带宽而定。\n");
+    printf("pname: 进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n");
 }
 
 /**
@@ -368,6 +368,10 @@ bool get_excluded_and_upload_files()
     for(auto &aa : lst_local_files)
     {
         auto it = m_uploaded_files.find(aa.filename);
+
+        // logfile.write("aa.filename = %s, aa.mtime = %s\n", aa.filename.c_str(), aa.mtime.c_str());
+        // logfile.write("it->second = %s\n", it->second.c_str());
+
         if(it != m_uploaded_files.end())
         {
             if(it->second == aa.mtime)
@@ -380,6 +384,11 @@ bool get_excluded_and_upload_files()
             lst_upload_files.push_back(aa);
         }
     }
+
+    if(lst_upload_files.size() == 0)
+        logfile.write("no file need to upload\n");
+    else
+        logfile.write("There are %d files need to upload.\n", lst_upload_files.size());
 
     return true;
 }

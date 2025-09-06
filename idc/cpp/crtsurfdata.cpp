@@ -1,3 +1,7 @@
+/**
+ * @brief 根据气象站点参数文件随机生成站点观测数据文件
+*/
+
 #include "_public.h"
 using namespace idc;
 

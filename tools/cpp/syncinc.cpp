@@ -1,5 +1,5 @@
 /**
- * @brief 采用增量的方法同步Oracle数据库之间的表
+ * @brief 采用增量的方法同步Oracle数据库之间的表（数据同步）
 */
 #include "_tools.h"
 

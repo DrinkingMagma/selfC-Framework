@@ -1,5 +1,5 @@
 /**
- * @brief  迁移表中的数据
+ * @brief  迁移表中的数据（数据清理）
 */
 
 #include "_tools.h"

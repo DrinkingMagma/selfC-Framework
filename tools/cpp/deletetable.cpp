@@ -1,5 +1,5 @@
 /**
- * @brief  清除表中的数据
+ * @brief  清除表中的数据（数据清理）
 */
 
 #include "_public.h"

@@ -1,5 +1,5 @@
 /**
- * @brief 将xml文件中的数据插入数据库中
+ * @brief 将xml文件中的数据插入数据库中(数据入库)
 */
 
 #include "_tools.h"

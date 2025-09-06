@@ -1,5 +1,5 @@
 /**
- * @brief 从oracle数据库中获取指定表内数据并写入xml文件
+ * @brief 从oracle数据库中获取指定表内数据并写入xml文件(数据抽取)
  */
 
 #include "_public.h"
@@ -132,7 +132,7 @@ void _help()
     printf("            inc_file_name   已抽取数据的递增字段最大值存放的文件，如果该文件丢失，将重新抽取全部的数据。\n");
     printf("            conn_str1       已抽取数据的递增字段最大值存放的数据库的连接参数。conn_str1和inc_file_name二选一，conn_str1优先。\n");
     printf("            timeout         本程序的超时时间，单位：秒。\n");
-    printf("            p_name          进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n\n\n");
+    printf("            p_name          进程名，尽可能采用易懂的、与其它进程不同的名称，方便故障排查。\n");
     print_dash_line(60);
 }
 
