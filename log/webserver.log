@@ -1,0 +1,116 @@
+2025-09-11 20:16:26 recv_func(): recv event, fd = 15, events = 1.
+2025-09-11 20:16:26 recv_func(): recv 564 bytes data from client(15).
+2025-09-11 20:16:26 recv_func(): recv a complete HTTP request from client(15).
+2025-09-11 20:16:26 15 create a new message.
+2025-09-11 20:16:26 work_func(): work thread(1) process request(socket = 15, message = 
+GET /api?username=wucz&password=wuczpwd&intername=getzhobtcode HTTP/1.1
+Host: 192.168.59.132:5088
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+).
+2025-09-11 20:16:26 work_func(): work thread(1) response request(socket = 15, message = 
+<retcode>-1</retcode><message>用户名或密码错误</message>)
+2025-09-11 20:16:26 15 create a new message.
+2025-09-11 20:16:26 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:16:26 send_func(): cur fd = 15(event = 4)
+2025-09-11 20:16:26 send_func(): send thread send 161 bytes to 15
+2025-09-11 20:16:26 recv_func(): recv event, fd = 15, events = 1.
+2025-09-11 20:16:26 recv_func(): recv 486 bytes data from client(15).
+2025-09-11 20:16:26 recv_func(): recv a complete HTTP request from client(15).
+2025-09-11 20:16:26 15 create a new message.
+2025-09-11 20:16:26 work_func(): work thread(2) process request(socket = 15, message = 
+GET /favicon.ico HTTP/1.1
+Host: 192.168.59.132:5088
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.59.132:5088/api?username=wucz&password=wuczpwd&intername=getzhobtcode
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+).
+2025-09-11 20:16:26 work_func(): work thread(2) response request(socket = 15, message = 
+<retcode>-1</retcode><message>用户名或密码错误</message>)
+2025-09-11 20:16:26 15 create a new message.
+2025-09-11 20:16:26 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:16:26 send_func(): cur fd = 15(event = 4)
+2025-09-11 20:16:26 send_func(): send thread send 161 bytes to 15
+2025-09-11 20:17:29 recv_func(): recv event, fd = 15, events = 1.
+2025-09-11 20:17:29 recv_func(): recv 564 bytes data from client(15).
+2025-09-11 20:17:29 recv_func(): recv a complete HTTP request from client(15).
+2025-09-11 20:17:29 15 create a new message.
+2025-09-11 20:17:29 work_func(): work thread(3) process request(socket = 15, message = 
+GET /api?username=wucz&password=wuczpwd&intername=getzhobtcode HTTP/1.1
+Host: 192.168.59.132:5088
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+).
+2025-09-11 20:17:29 work_func(): work thread(3) response request(socket = 15, message = 
+<retcode>-1</retcode><message>用户名或密码错误</message>)
+2025-09-11 20:17:29 15 create a new message.
+2025-09-11 20:17:29 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:17:29 send_func(): cur fd = 15(event = 4)
+2025-09-11 20:17:29 send_func(): send thread send 161 bytes to 15
+2025-09-11 20:17:29 recv_func(): recv event, fd = 15, events = 1.
+2025-09-11 20:17:29 recv_func(): recv 486 bytes data from client(15).
+2025-09-11 20:17:29 recv_func(): recv a complete HTTP request from client(15).
+2025-09-11 20:17:29 15 create a new message.
+2025-09-11 20:17:29 work_func(): work thread(1) process request(socket = 15, message = 
+GET /favicon.ico HTTP/1.1
+Host: 192.168.59.132:5088
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.59.132:5088/api?username=wucz&password=wuczpwd&intername=getzhobtcode
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+
+).
+2025-09-11 20:17:29 work_func(): work thread(1) response request(socket = 15, message = 
+<retcode>-1</retcode><message>用户名或密码错误</message>)
+2025-09-11 20:17:29 15 create a new message.
+2025-09-11 20:17:29 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:17:29 send_func(): cur fd = 15(event = 4)
+2025-09-11 20:17:29 send_func(): send thread send 161 bytes to 15
+2025-09-11 20:18:52 recv_func(): recv event, fd = 8, events = 1.
+2025-09-11 20:18:52 recv_func(): accept new client(socket = 16) succeeded.
+2025-09-11 20:18:52 recv_func(): recv event, fd = 16, events = 1.
+2025-09-11 20:18:52 recv_func(): recv 140 bytes data from client(16).
+2025-09-11 20:18:52 recv_func(): recv a complete HTTP request from client(16).
+2025-09-11 20:18:52 16 create a new message.
+2025-09-11 20:18:52 work_func(): work thread(2) process request(socket = 16, message = 
+GET /api?username=wucz&password=wuczpwd&intername=getzhobtcode HTTP/1.1
+Host: 192.168.59.132:5088
+User-Agent: curl/7.61.1
+Accept: */*
+
+).
+2025-09-11 20:18:52 work_func(): work thread(2) response request(socket = 16, message = 
+<retcode>-1</retcode><message>用户名或密码错误</message>)
+2025-09-11 20:18:52 16 create a new message.
+2025-09-11 20:18:52 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:18:52 send_func(): cur fd = 16(event = 4)
+2025-09-11 20:18:52 send_func(): send thread send 161 bytes to 16
+2025-09-11 20:18:52 recv_func(): recv event, fd = 16, events = 1.
+2025-09-11 20:18:52 recv_func(): client(16) disconnected.
+2025-09-11 20:18:56 Program exit, sig = 2
+2025-09-11 20:18:56 recv_func(): recv event, fd = 5, events = 1.
+2025-09-11 20:18:56 recv_func(): recv thread will exit.
+2025-09-11 20:18:56 work_func(): work thread(3) will exit.
+2025-09-11 20:18:56 send_func(): cur fd = 3(event = 1)
+2025-09-11 20:18:56 send_func(): send thread will exit.
+2025-09-11 20:18:56 work_func(): work thread(1) will exit.
+2025-09-11 20:18:56 work_func(): work thread(2) will exit.
+work_func(): work t

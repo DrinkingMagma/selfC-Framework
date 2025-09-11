@@ -13,6 +13,12 @@ BINS := $(SRCS:.cpp=)
 
 all:$(BINS)
 
+test_valgrind: test_valgrind.cpp
+	g++ -g -o test_valgrind test_valgrind.cpp
+
+test_gprof_1: test_gprof_1.cpp
+	g++ -pg -o test_gprof_1 test_gprof_1.cpp
+
 xmltodb: xmltodb.cpp _tools.cpp
 	$(CXX) $(INCLUDEDIR) $(CFLAGS) -o $@ $^ $(LIBDIR) $(LDFLAGS) $(LIBS)
 	cp -f $@ ../bin/
