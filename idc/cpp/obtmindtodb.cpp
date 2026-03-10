@@ -1,3 +1,7 @@
+/**
+ * @brief 读取全国气象观测数据文件并插入到T_ZHOBTMIND表中，支持xml和csv格式，数据只进行插入，不进行更新
+ */
+
 #include "idcapp.h"
 using namespace idc;
 

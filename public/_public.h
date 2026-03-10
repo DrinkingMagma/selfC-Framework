@@ -211,7 +211,6 @@ namespace idc
      * @note 当value为char[]时，需要确保value的长度足够大，否则会出错。也可以用i_len限定获取的字段内容的长度
      */
     bool get_xml_buffer(const string &xml_buffer, const string &field_name, string &value, int i_len = 0);
-
     bool get_xml_buffer(const string &xml_buffer, const string &field_name, char *value, int i_len = 0);
     bool get_xml_buffer(const string &xml_buffer, const string &field_name, bool &value);
     bool get_xml_buffer(const string &xml_buffer, const string &field_name, int &value);

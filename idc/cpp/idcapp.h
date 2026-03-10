@@ -9,7 +9,10 @@
 #include "_ooci.h"
 using namespace idc;
 
-// 全国气象观测数据操作类
+/**
+ * @brief 全国气象观测数据操作类
+ * @details 该类用于操作全国气象观测数据，包括拆分文件数据、插入数据库等操作。
+ */
 class C_ZHOBTMIND
 {
 private:
