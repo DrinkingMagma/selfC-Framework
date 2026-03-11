@@ -1,12 +1,21 @@
+/**
+ * @file procctl.cpp
+ * @brief 进程监控程序
+ * @details 用于周期性执行指定程序或监控常驻内存程序
+ */
+
 #include "_public.h"
 #include <sys/wait.h>
 using namespace idc;
 
-/*
- * 进程监控程序 - 用于周期性执行指定程序或监控常驻内存程序
- * 功能：
- *   1. 周期性执行指定程序（当time_tvl大于等于5秒时）
- *   2. 监控常驻内存程序，确保其持续运行（当time_tvl小于5秒时）
+/**
+ * @brief 主函数
+ * @param argc 命令行参数个数
+ * @param argv 命令行参数数组
+ * @return 0表示成功，-1表示失败
+ * @details 该程序用于周期性执行指定程序或监控常驻内存程序
+ *          1. 当time_tvl大于等于5秒时，周期性执行指定程序
+ *          2. 当time_tvl小于5秒时，监控常驻内存程序，确保其持续运行
  */
 int main(int argc, char *argv[])
 {
@@ -18,7 +27,7 @@ int main(int argc, char *argv[])
 
         printf("the time_tvl unit is second.\n");
         printf("if the program is cyclical, time_tvl need to set cycle time.\n");
-        printf("if thr program is is resident in memory, time_tvl need less than 5.\n");
+        printf("if the program is resident in memory, time_tvl need less than 5.\n");
         printf("note: if you need kill the program, please use \"kill -9 pid/programName\" command.\n");
 
         return -1;
